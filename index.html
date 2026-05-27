@@ -658,7 +658,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 23%; /* crop perfectly on face */
+      object-position: 50% 23%;
+      /* crop perfectly on face */
       filter: grayscale(12%) contrast(106%);
       transition: filter 0.3s ease;
     }
@@ -671,13 +672,11 @@
     .photo-scanline {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 0, 0.15) 50%,
-        rgba(0, 0, 0, 0.15)
-      );
+      background: linear-gradient(to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.15) 50%,
+          rgba(0, 0, 0, 0.15));
       background-size: 100% 4px;
       pointer-events: none;
       opacity: 0.7;
@@ -685,10 +684,23 @@
     }
 
     @keyframes scannerSweep {
-      0% { top: 0%; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { top: 100%; opacity: 0; }
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
     }
 
     .photo-scanner-beam {
@@ -711,10 +723,34 @@
       pointer-events: none;
       z-index: 4;
     }
-    .photo-border-bracket.top-left { top: 4px; left: 4px; border-right: none; border-bottom: none; }
-    .photo-border-bracket.top-right { top: 4px; right: 4px; border-left: none; border-bottom: none; }
-    .photo-border-bracket.bottom-left { bottom: 4px; left: 4px; border-right: none; border-top: none; }
-    .photo-border-bracket.bottom-right { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+    .photo-border-bracket.top-left {
+      top: 4px;
+      left: 4px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .photo-border-bracket.top-right {
+      top: 4px;
+      right: 4px;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .photo-border-bracket.bottom-left {
+      bottom: 4px;
+      left: 4px;
+      border-right: none;
+      border-top: none;
+    }
+
+    .photo-border-bracket.bottom-right {
+      bottom: 4px;
+      right: 4px;
+      border-left: none;
+      border-top: none;
+    }
 
     .profile-header-details {
       display: flex;
@@ -740,8 +776,17 @@
     }
 
     @keyframes pulseGreen {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+      }
     }
 
     .status-indicator {
@@ -1680,7 +1725,8 @@
     <div class="driver-profile">
       <div class="profile-card">
         <div class="profile-header">
-          <div class="profile-photo-container" onclick="openLightbox('profile.jpg', '// DRIVER FILE — VED DIXIT — LEAD BUILDER')">
+          <div class="profile-photo-container"
+            onclick="openLightbox('profile.jpg', '// DRIVER FILE — VED DIXIT — LEAD BUILDER')">
             <img src="profile.jpg" alt="Ved Dixit" class="profile-photo">
             <div class="photo-scanline"></div>
             <div class="photo-scanner-beam"></div>
@@ -1696,10 +1742,12 @@
             </div>
             <div class="profile-name-big">VED DIXIT</div>
             <div class="driver-metadata-grid">
-              <div class="meta-item"><span class="meta-lbl">CLASS:</span><span class="meta-val text-amber">S-CLASS</span></div>
+              <div class="meta-item"><span class="meta-lbl">CLASS:</span><span
+                  class="meta-val text-amber">S-CLASS</span></div>
               <div class="meta-item"><span class="meta-lbl">ROLE:</span><span class="meta-val">LEAD BUILDER</span></div>
               <div class="meta-item"><span class="meta-lbl">EXP:</span><span class="meta-val">1 YEAR</span></div>
-              <div class="meta-item"><span class="meta-lbl">STATUS:</span><span class="meta-val text-green">ONLINE</span></div>
+              <div class="meta-item"><span class="meta-lbl">STATUS:</span><span
+                  class="meta-val text-green">ONLINE</span></div>
             </div>
           </div>
         </div>
@@ -1769,17 +1817,19 @@
         <br>
         <div class="cert-card">
           <div class="cert-icon">◈</div>
-          <div>
+          <div style="flex:1;">
             <div class="cert-name">Gen AI</div>
             <div class="cert-issuer">GOOGLE</div>
           </div>
+          <div class="status-badge badge-wip" style="align-self:center;">ONGOING</div>
         </div>
         <div class="cert-card">
           <div class="cert-icon">◈</div>
-          <div>
+          <div style="flex:1;">
             <div class="cert-name">GitHub Foundations</div>
             <div class="cert-issuer">MICROSOFT</div>
           </div>
+          <div class="status-badge badge-wip" style="align-self:center;">ONGOING</div>
         </div>
 
         <div class="tape-divider" style="margin:1.5rem 0;"></div>
@@ -1809,7 +1859,7 @@
     <div class="section-header reveal">
       <div class="section-label">CONTACT BAY</div>
       <div class="section-line"></div>
-      <div class="section-code">BAY-09 / OPEN FOR WORK</div>
+      <div class="section-code">BAY-03 / OPEN FOR WORK</div>
     </div>
 
     <div class="contact-bay">
@@ -1828,9 +1878,9 @@
           <span class="link-arrow">→</span>
         </a>
 
-        <a href="#" class="contact-link">
+        <a href="Ved_Dixit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
           <span class="link-label">Resume</span>
-          <span class="link-val">Download spec sheet (PDF)</span>
+          <span class="link-val">View the Resume</span>
           <span class="link-arrow">→</span>
         </a>
 
