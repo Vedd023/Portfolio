@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": "college-erp",
+      "name": "COLLEGE ERP — EduNexus",
+      "screenshots": [
+        {
+          "url": "https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/screenshot.png",
+          "alt": "Login Screen",
+          "caption": "// SECURE PORTAL LOGIN",
+          "description": "Role-based authentication interface for Students, Faculty, and Admins."
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/dashboard.png",
+          "alt": "Dashboard",
+          "caption": "// SYSTEM DASHBOARD",
+          "description": "High-level analytics, attendance tracking, and institutional data overview."
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/menu.png",
+          "alt": "Navigation Menu",
+          "caption": "// NAVIGATION MODULE",
+          "description": "Quick access sidebar for system routing, grading metrics, and profile management."
+        }
+      ]
+    }
+  ]
+}
