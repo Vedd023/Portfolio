@@ -129,7 +129,7 @@ def generate_pdf(output_path):
         '7738353010 · Navi Mumbai · '
         '<font color="#1b4f91"><a href="https://www.linkedin.com/in/ved-dixit-b279983a1">LinkedIn</a></font> · '
         '<font color="#1b4f91"><a href="https://github.com/Vedd023">GitHub</a></font> · '
-        '<font color="#1b4f91"><a href="https://vedd023.github.io/portfolio">Portfolio</a></font>'
+        '<font color="#1b4f91"><a href="https://veddixit.syntaxsyndicate.co.in">Portfolio</a></font>'
     )
     story.append(Paragraph(contact_text, contact_style))
     story.append(Spacer(1, 6))
@@ -169,7 +169,7 @@ def generate_pdf(output_path):
     work_table_data = [
         [
             Paragraph("<b>Web Operations Intern</b>", item_title_style),
-            Paragraph("July 2026 - September", item_date_style)
+            Paragraph("July 2026 - Sept 2026", item_date_style)
         ]
     ]
     work_table = Table(work_table_data, colWidths=[content_width * 0.7, content_width * 0.3])
@@ -186,13 +186,13 @@ def generate_pdf(output_path):
 
     # Skills
     story.extend(section_header("SKILLS"))
-    story.append(Paragraph("<b>Web Development Skills:</b> HTML, CSS, Javascript", body_style))
+    story.append(Paragraph("<b>Programming Languages:</b> Python, SQL", body_style))
     story.append(Spacer(1, 3))
-    story.append(Paragraph("<b>Programming Languages:</b> Python", body_style))
+    story.append(Paragraph("<b>Web Development:</b> HTML, CSS, JavaScript", body_style))
     story.append(Spacer(1, 3))
-    story.append(Paragraph("<b>Database:</b> Cloud Firestore", body_style))
+    story.append(Paragraph("<b>Databases &amp; Cloud:</b> Cloud Firestore, Firebase Auth", body_style))
     story.append(Spacer(1, 3))
-    story.append(Paragraph("<b>Editing:</b> Da Vinci, Capcut", body_style))
+    story.append(Paragraph("<b>Tools &amp; Workflows:</b> GitHub, REST APIs, Canvas API", body_style))
 
     # Projects (Page 1)
     story.extend(section_header("PROJECTS"))
@@ -224,11 +224,13 @@ def generate_pdf(output_path):
         "to share and access while providing a simple and user-friendly interface.",
         body_style
     ))
+    story.append(Spacer(1, 2))
+    story.append(Paragraph('<font color="#1b4f91"><a href="https://github.com/Vedd023/LINKGRID">GitHub</a></font>', link_style))
 
     # Polaris
     story.append(Spacer(1, 8))
     story.append(Paragraph(
-        "<b>Polaris</b> | <font color='#444444'>Next.js 15, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Supabase Auth, PostgreSQL Row-Level Security (RLS).</font>",
+        "<b>Polaris</b> | <font color='#444444'>HTML, CSS, JavaScript, REST APIs</font>",
         project_header_style
     ))
     story.append(Spacer(1, 3))
@@ -238,7 +240,7 @@ def generate_pdf(output_path):
         body_style
     ))
     story.append(Spacer(1, 2))
-    story.append(Paragraph('<font color="#1b4f91"><a href="https://github.com/Vedd023/Polaris">Live Demo</a></font>', link_style))
+    story.append(Paragraph('<font color="#1b4f91"><a href="https://github.com/Vedd023/Polaris">GitHub</a></font>', link_style))
 
     # Page Break for Page 2 (as in original PDF)
     story.append(PageBreak())
@@ -248,18 +250,69 @@ def generate_pdf(output_path):
     
     # Belt Guard AI
     story.append(Paragraph(
-        "<b>Belt Guard AI</b> | <font color='#444444'>React 19, TypeScript 6, Vite 8, Tailwind CSS 4, Recharts, React Router DOM, Lucide React, date-fns.</font>",
+        "<b>Belt Guard AI</b> | <font color='#444444'>JavaScript, HTML, CSS, Vite, Recharts</font>",
         project_header_style
     ))
     story.append(Spacer(1, 3))
     story.append(Paragraph(
         "An AI-powered industrial monitoring dashboard that uses simulated multi-sensor telemetry, sensor-fusion risk "
         "scoring, and anomaly detection to monitor conveyor belt health, identify potential faults, and support "
-        "predictive maintenance.",
+        "predictive maintenance. Won the internal hackathon as main shortlisted idea for SIH 2026.",
         body_style
     ))
     story.append(Spacer(1, 2))
-    story.append(Paragraph('<font color="#1b4f91"><a href="https://github.com/Vedd023/Belt-Guard-AI">Live Demo</a></font>', link_style))
+    story.append(Paragraph('<font color="#1b4f91"><a href="https://github.com/Vedd023/Belt-Guard-AI">GitHub</a></font>', link_style))
+
+    # Achievements & Hackathons
+    story.extend(section_header("ACHIEVEMENTS & HACKATHONS"))
+    ach1_table_data = [
+        [
+            Paragraph("<b>Internal Winner &amp; National Shortlist — Smart India Hackathon (SIH 2026)</b>", item_title_style),
+            Paragraph("2026", item_date_style)
+        ]
+    ]
+    ach1_table = Table(ach1_table_data, colWidths=[content_width * 0.7, content_width * 0.3])
+    ach1_table.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('LEFTPADDING', (0,0), (-1,-1), 0),
+        ('RIGHTPADDING', (0,0), (-1,-1), 0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 0),
+        ('TOPPADDING', (0,0), (-1,-1), 0),
+    ]))
+    story.append(ach1_table)
+    story.append(Spacer(1, 2))
+    story.append(Paragraph("Ministry of Education · Team Innovexa", item_subtitle_style))
+    story.append(Spacer(1, 2))
+    story.append(Paragraph(
+        "Won the college internal hackathon with <b>Belt Guard AI</b> as the primary shortlisted idea for national stage nomination. "
+        "Subsequently selected and engineered <b>POLARIS</b> as the 2nd problem statement platform for expedition logistics and risk monitoring.",
+        body_style
+    ))
+
+    story.append(Spacer(1, 6))
+    ach2_table_data = [
+        [
+            Paragraph("<b>Finalist — Hackcelestial 3.0</b>", item_title_style),
+            Paragraph("Sept 2026", item_date_style)
+        ]
+    ]
+    ach2_table = Table(ach2_table_data, colWidths=[content_width * 0.7, content_width * 0.3])
+    ach2_table.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('LEFTPADDING', (0,0), (-1,-1), 0),
+        ('RIGHTPADDING', (0,0), (-1,-1), 0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 0),
+        ('TOPPADDING', (0,0), (-1,-1), 0),
+    ]))
+    story.append(ach2_table)
+    story.append(Spacer(1, 2))
+    story.append(Paragraph("Pillai University · Tech Alegria 2026 (24-Hour Hackathon)", item_subtitle_style))
+    story.append(Spacer(1, 2))
+    story.append(Paragraph(
+        "Selected as a finalist out of competing engineering teams in an intensive 24-hour national offline hackathon "
+        "organized by Pillai University and CSI PCE at Dr. K. M. Vasudevan Pillai Campus, New Panvel.",
+        body_style
+    ))
 
     # Volunteer Experience
     story.extend(section_header("VOLUNTEER EXPERIENCE"))

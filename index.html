@@ -4,18 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ved Dixit — AI &amp; Data Science Engineer</title>
+  <title>Ved Dixit — AI &amp; Data Science Engineer | Portfolio</title>
   <meta name="description"
-    content="Ved Dixit is an AI and Data Science engineering student who builds applications, explores intelligent systems, and creates digital experiences.">
+    content="Ved Dixit is an AI &amp; Data Science engineering student and developer based in Navi Mumbai. Explore projects in intelligent systems, web platforms, and data applications.">
   <meta name="author" content="Ved Dixit">
-  <meta property="og:title" content="Ved Dixit — AI & Data Science Engineer">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="keywords"
+    content="Ved Dixit, Ved Dixit portfolio, Ved Dixit AI, Ved Dixit Engineer, Ved Dixit Navi Mumbai, Ved Dixit Terna, Vedd023, Ved Dixit GitHub">
+  <link rel="canonical" href="https://veddixit.syntaxsyndicate.co.in">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Ved Dixit Portfolio">
+  <meta property="og:title" content="Ved Dixit — AI &amp; Data Science Engineer">
   <meta property="og:description"
-    content="Curious by nature. Builder by choice. I turn ideas into software, intelligent systems and digital experiences.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vedd023.github.io/Portfolio">
+    content="Curious by nature. Builder by choice. Explore projects in industrial AI monitoring, web applications, and data science by Ved Dixit.">
+  <meta property="og:url" content="https://veddixit.syntaxsyndicate.co.in">
+  <meta property="og:image" content="https://veddixit.syntaxsyndicate.co.in/profile.jpg">
+  <meta property="og:image:alt" content="Ved Dixit — AI &amp; Data Science Engineer">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ved Dixit — AI & Data Science Engineer">
-  <link rel="canonical" href="https://vedd023.github.io/Portfolio">
+  <meta name="twitter:title" content="Ved Dixit — AI &amp; Data Science Engineer">
+  <meta name="twitter:description"
+    content="Curious by nature. Builder by choice. Explore projects in intelligent systems, web platforms, and data applications by Ved Dixit.">
+  <meta name="twitter:image" content="https://veddixit.syntaxsyndicate.co.in/profile.jpg">
+
+  <!-- Structured Data: JSON-LD (Schema.org) for Google Knowledge Graph & ProfilePage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://veddixit.syntaxsyndicate.co.in/#profilepage",
+        "url": "https://veddixit.syntaxsyndicate.co.in",
+        "name": "Ved Dixit — AI & Data Science Engineer | Portfolio",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://veddixit.syntaxsyndicate.co.in/#website",
+          "url": "https://veddixit.syntaxsyndicate.co.in",
+          "name": "Ved Dixit Portfolio"
+        },
+        "mainEntity": {
+          "@id": "https://veddixit.syntaxsyndicate.co.in/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://veddixit.syntaxsyndicate.co.in/#person",
+        "name": "Ved Dixit",
+        "alternateName": "Vedd023",
+        "jobTitle": "AI & Data Science Engineering Student",
+        "url": "https://veddixit.syntaxsyndicate.co.in",
+        "image": "https://veddixit.syntaxsyndicate.co.in/profile.jpg",
+        "description": "Ved Dixit is an Artificial Intelligence and Data Science engineering student who builds practical software applications, intelligent systems, and responsive web platforms.",
+        "sameAs": [
+          "https://github.com/Vedd023",
+          "https://www.linkedin.com/in/ved-dixit-b279983a1"
+        ],
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Data Science",
+          "Python",
+          "SQL",
+          "JavaScript",
+          "Web Development",
+          "Cloud Firestore",
+          "Firebase",
+          "Anomaly Detection"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Terna Engineering College",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Navi Mumbai",
+            "addressCountry": "IN"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,6 +148,9 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 80px;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -91,6 +174,9 @@
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -261,24 +347,41 @@
       display: none !important;
     }
 
-    /* Mobile menu */
+    /* Mobile menu button */
     .nav-toggle {
       display: none;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      cursor: pointer;
       gap: 5px;
-      padding: 4px;
+      transition: all var(--transition);
+      z-index: 1002;
+      touch-action: manipulation;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
     }
 
     .nav-toggle span {
       display: block;
-      width: 22px;
-      height: 1.5px;
+      width: 20px;
+      height: 2px;
       background: var(--text);
-      transition: all var(--transition);
+      border-radius: 1px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .nav-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(4px, 5px);
+      transform: translateY(7px) rotate(45deg);
     }
 
     .nav-toggle.active span:nth-child(2) {
@@ -286,7 +389,7 @@
     }
 
     .nav-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(4px, -5px);
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     @media (max-width: 768px) {
@@ -294,21 +397,26 @@
         display: flex;
       }
 
+      .nav-inner {
+        padding: 0 16px;
+      }
+
       .nav-links {
+        display: none;
         position: fixed;
         top: 64px;
         left: 0;
-        width: 100vw;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
         height: calc(100vh - 64px);
         height: calc(100dvh - 64px);
-        background: #101010 !important;
+        background: #101010;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         padding: var(--space-xl) var(--space-md);
         gap: var(--space-lg);
-        transform: translateX(100%);
-        transition: transform var(--transition);
         overflow-y: auto;
         border-top: 1px solid var(--border);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
@@ -316,7 +424,7 @@
       }
 
       .nav-links.open {
-        transform: translateX(0);
+        display: flex;
       }
 
       .nav-links a {
@@ -341,6 +449,9 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      overflow: hidden;
+      max-width: 100%;
+      pointer-events: none;
     }
 
     .hero-bg::before {
@@ -531,8 +642,10 @@
     ═══════════════════════════════════════════ */
     .flip-card,
     .project-card-flip-wrapper {
-      perspective: 1400px;
-      -webkit-perspective: 1400px;
+      perspective: 1200px;
+      -webkit-perspective: 1200px;
+      cursor: pointer;
+      touch-action: manipulation;
     }
 
     /* Featured Project Flip Visual */
@@ -550,18 +663,24 @@
       height: 100%;
       transform-style: preserve-3d;
       -webkit-transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    /* Rotation triggers: hover on featured card or visual */
-    .project-featured:hover .flip-card-inner,
+    /* Rotation triggers */
     .project-featured.is-flipped .flip-card-inner,
-    .project-featured-visual:hover .flip-card-inner,
     .project-featured-visual.is-flipped .flip-card-inner,
-    .flip-card:hover .flip-card-inner,
     .flip-card.is-flipped .flip-card-inner {
       transform: rotateY(180deg);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+
+      .project-featured:hover .flip-card-inner,
+      .project-featured-visual:hover .flip-card-inner,
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
     }
 
     .project-featured-visual .flip-card-front,
@@ -576,12 +695,23 @@
     }
 
     .project-featured-visual .flip-card-front {
-      transform: rotateY(0deg) translateZ(1px);
+      transform: rotateY(0deg);
+      z-index: 2;
     }
 
     .project-featured-visual .flip-card-back {
-      transform: rotateY(180deg) translateZ(1px);
+      transform: rotateY(180deg);
       background: #0d0d0d;
+      z-index: 1;
+    }
+
+    .project-featured-visual.is-flipped .flip-card-front {
+      pointer-events: none;
+    }
+
+    .project-featured-visual.is-flipped .flip-card-back {
+      pointer-events: auto;
+      z-index: 5;
     }
 
     .flip-dashboard-container {
@@ -670,6 +800,8 @@
       position: relative;
       min-height: 480px;
       height: 100%;
+      cursor: pointer;
+      touch-action: manipulation;
     }
 
     .project-card-flip-inner {
@@ -679,13 +811,18 @@
       min-height: 480px;
       transform-style: preserve-3d;
       -webkit-transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
 
-    .project-card-flip-wrapper:hover .project-card-flip-inner,
     .project-card-flip-wrapper.is-flipped .project-card-flip-inner {
       transform: rotateY(180deg);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .project-card-flip-wrapper:hover .project-card-flip-inner {
+        transform: rotateY(180deg);
+      }
     }
 
     .project-card-flip-front,
@@ -701,14 +838,25 @@
     }
 
     .project-card-flip-front {
-      transform: rotateY(0deg) translateZ(1px);
+      transform: rotateY(0deg);
+      z-index: 2;
     }
 
     .project-card-flip-back {
-      transform: rotateY(180deg) translateZ(1px);
+      transform: rotateY(180deg);
       background: #0d0d0d;
       display: flex;
       flex-direction: column;
+      z-index: 1;
+    }
+
+    .project-card-flip-wrapper.is-flipped .project-card-flip-front {
+      pointer-events: none;
+    }
+
+    .project-card-flip-wrapper.is-flipped .project-card-flip-back {
+      pointer-events: auto;
+      z-index: 5;
     }
 
     .project-card-flip-front .project-card {
@@ -738,13 +886,24 @@
       letter-spacing: 1px;
       color: var(--text-muted);
       text-transform: uppercase;
-      opacity: 0.75;
+      opacity: 0.85;
+      cursor: pointer;
+      touch-action: manipulation;
       transition: opacity var(--transition), color var(--transition);
     }
 
-    .project-card-flip-wrapper:hover .card-flip-badge {
+    .project-card-flip-wrapper:hover .card-flip-badge,
+    .card-flip-badge:hover {
       opacity: 1;
       color: var(--accent);
+    }
+
+    .card-flip-badge.back-badge {
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      color: var(--accent);
+      opacity: 0.95;
     }
 
     .flip-hint-icon {
@@ -902,15 +1061,15 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: #4caf63;
+      color: #d4a00a;
     }
 
     .hud-pulse {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #4caf63;
-      box-shadow: 0 0 8px #4caf63;
+      background: #d4a00a;
+      box-shadow: 0 0 8px #d4a00a;
       animation: pulse-hud 2s infinite ease-in-out;
     }
 
@@ -975,7 +1134,7 @@
       font-size: 9px;
       margin-top: 3px;
       letter-spacing: 0.5px;
-      color: #4caf63;
+      color: var(--text-muted);
     }
 
     .hud-waveform-wrap {
@@ -1113,12 +1272,6 @@
       color: var(--accent);
     }
 
-    /* Supporting project cards */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2px;
-    }
 
     .project-card {
       background: var(--surface);
@@ -1743,7 +1896,7 @@
     }
 
     /* ═══════════════════════════════════════════
-       RESPONSIVE
+       RESPONSIVE & MOBILE STYLES
     ═══════════════════════════════════════════ */
     @media (max-width: 900px) {
       .project-featured {
@@ -1767,10 +1920,6 @@
         gap: var(--space-xl);
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
       .toolkit-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1781,29 +1930,309 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+
+      /* Prevent horizontal scrolling completely */
+      html,
+      body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .container {
+        padding: 0 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+      }
+
+      /* Navigation firmly in top-right corner */
+      .nav-inner {
+        padding: 0 16px !important;
+        width: 100% !important;
+      }
+
+      .nav-toggle {
+        display: flex !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: auto;
+        padding: 6.5rem 0 3.5rem;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        overflow: hidden;
+      }
+
+      .hero-bg::before {
+        width: 320px;
+        height: 320px;
+        right: -10%;
+        max-width: 80vw;
+      }
+
       .hero-headline {
-        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        font-size: clamp(2.3rem, 9vw, 3.8rem);
+        line-height: 1.05;
+        word-break: break-word;
+        hyphens: none;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-meta {
+        font-size: 11px;
+        white-space: normal;
+        flex-wrap: wrap;
+        line-height: 1.4;
+      }
+
+      .hero-intro {
+        max-width: 100%;
+        font-size: 13px;
+        padding-left: 12px;
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Featured Project 01 — BeltGuard AI */
+      .project-featured {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-xl);
+        width: 100%;
+      }
+
+      .project-featured-visual.flip-card {
+        min-height: 290px;
+        height: auto;
+        aspect-ratio: auto;
+        width: 100%;
+      }
+
+      .telemetry-hud {
+        padding: 10px 12px;
+      }
+
+      .hud-metrics {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px;
+      }
+
+      .hud-metric {
+        padding: 6px 8px;
+      }
+
+      .hud-label {
+        font-size: 8px;
+        margin-bottom: 2px;
+      }
+
+      .hud-value {
+        font-size: 13px;
+      }
+
+      .hud-waveform {
+        height: 32px;
+      }
+
+      .hud-waveform-wrap {
+        padding: 6px 8px;
+      }
+
+      .hud-header {
+        font-size: 9px;
+        padding-bottom: 4px;
+      }
+
+      .hud-footer {
+        font-size: 8px;
+        padding-top: 4px;
+      }
+
+      .hud-flip-prompt {
+        font-size: 8px;
+        margin-top: 4px;
+        padding-top: 4px;
+      }
+
+      .flip-dashboard-container {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        min-height: 290px;
+      }
+
+      .flip-card-back-img {
+        max-height: 170px;
+        height: auto;
+        object-fit: contain;
+        padding: 6px;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .flip-card-back-overlay {
+        position: relative;
+        padding: 10px 14px;
+        background: #141414;
+        border-top: 1px solid var(--border);
+      }
+
+      .flip-card-back-label {
+        font-size: 9px;
+      }
+
+      .flip-card-back-hint {
+        font-size: 11px;
+      }
+
+      /* Supporting Projects (02 LinkGrid, 03 Polaris, 04 College ERP) */
+      .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .project-card-flip-wrapper {
+        min-height: 480px;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-card-flip-front .project-card {
+        padding: 1.25rem;
+      }
+
+      .project-title {
+        font-size: 1.55rem;
+      }
+
+      .project-desc {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .project-stack {
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .project-links {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      /* Dashboard Preview on back of cards */
+      .dashboard-preview-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #0d0d0d;
+      }
+
+      .dashboard-preview-img {
+        max-height: 190px;
+        height: auto;
+        object-fit: contain;
+        padding: 10px;
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+      }
+
+      .dashboard-preview-overlay {
+        position: relative;
+        padding: 12px 14px;
+        background: #121212;
+        border-top: 1px solid var(--border);
+      }
+
+      .dash-overlay-badge {
+        font-size: 9px;
+      }
+
+      .dash-overlay-title {
+        font-size: 1.15rem;
+      }
+
+      .dash-overlay-desc {
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      .dash-overlay-actions {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      .dash-action-btn {
+        padding: 5px 10px;
+        font-size: 10px;
+      }
+
+      .card-flip-badge {
+        font-size: 10px;
+        padding: 4px 0;
+      }
+
+      .card-flip-badge.back-badge {
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        color: var(--accent);
+        opacity: 0.95;
+      }
+
+      /* General Layout & Sections */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
       }
 
       .toolkit-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-sm);
+      }
+
+      .contact-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .section-heading {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+        margin-bottom: var(--space-md);
       }
 
       .footer-inner {
         flex-direction: column;
         gap: var(--space-sm);
         text-align: center;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        justify-content: center;
       }
     }
 
@@ -1944,7 +2373,7 @@
                   <div class="hud-header">
                     <div class="hud-status">
                       <span class="hud-pulse" aria-hidden="true"></span>
-                      <span>LIVE SENSOR STREAM</span>
+                      <span>DEMO TELEMETRY</span>
                     </div>
                     <div class="hud-id">BELT-MONITOR // UNIT-04</div>
                   </div>
@@ -1953,29 +2382,29 @@
                     <div class="hud-metric">
                       <div class="hud-label">ROTATION</div>
                       <div class="hud-value">1,420 <span class="hud-unit">RPM</span></div>
-                      <div class="hud-badge status-ok">NOMINAL</div>
+                      <div class="hud-badge status-ok">SIM · NOMINAL</div>
                     </div>
                     <div class="hud-metric">
                       <div class="hud-label">TEMP</div>
                       <div class="hud-value">41.8 <span class="hud-unit">°C</span></div>
-                      <div class="hud-badge status-ok">STABLE</div>
+                      <div class="hud-badge status-ok">SIM · STABLE</div>
                     </div>
                     <div class="hud-metric">
                       <div class="hud-label">LATERAL DRIFT</div>
                       <div class="hud-value">0.14 <span class="hud-unit">°</span></div>
-                      <div class="hud-badge status-ok">CALIBRATED</div>
+                      <div class="hud-badge status-ok">SIM · CALIBRATED</div>
                     </div>
                     <div class="hud-metric">
                       <div class="hud-label">LOAD</div>
                       <div class="hud-value">84 <span class="hud-unit">%</span></div>
-                      <div class="hud-badge status-ok">OPTIMAL</div>
+                      <div class="hud-badge status-ok">SIM · OPTIMAL</div>
                     </div>
                   </div>
 
                   <div class="hud-waveform-wrap">
                     <div class="hud-waveform-header">
-                      <span>VIBRATION SENSOR TELEMETRY (100 Hz FFT)</span>
-                      <span class="hud-freq">PEAK: 0.12 mm/s</span>
+                      <span>VIBRATION WAVEFORM — SIMULATED (100 Hz)</span>
+                      <span class="hud-freq">DEMO: 0.12 mm/s</span>
                     </div>
                     <svg class="hud-waveform" viewBox="0 0 400 50" preserveAspectRatio="none" aria-hidden="true">
                       <path d="M0,25 Q25,8 50,25 T100,25 T150,10 T200,40 T250,25 T300,15 T350,35 T400,25" fill="none"
@@ -1986,29 +2415,32 @@
                   </div>
 
                   <div class="hud-footer">
-                    <span>CV INSPECTION: SURFACE NOMINAL (CONF: 99.4%)</span>
-                    <span>UPTIME 148H 22M</span>
+                    <span>DEMO MODE — Simulated telemetry for prototype evaluation</span>
+                    <span>NO LIVE SENSORS CONNECTED</span>
                   </div>
                   <div class="hud-flip-prompt">
                     <span class="hud-flip-icon">↻</span>
-                    <span>HOVER CARD TO ROTATE &amp; VIEW LIVE DASHBOARD</span>
+                    <span>HOVER OR TAP TO ROTATE &amp; VIEW DASHBOARD PREVIEW</span>
                   </div>
                 </div>
               </div>
               <!-- BACK: Dashboard Screenshot -->
               <div class="flip-card-back">
                 <div class="flip-dashboard-container">
-                  <img src="beltguard_dashboard.jpg" alt="Belt-Guard-AI Industrial Vision &amp; Telemetry Dashboard"
+                  <img src="beltguard_dashboard.jpg" alt="Belt-Guard-AI Industrial Monitoring &amp; Telemetry Dashboard"
                     class="flip-card-back-img" loading="lazy">
                   <div class="flip-card-back-overlay">
                     <div>
-                      <span class="flip-card-back-label">// Industrial Vision &amp; Telemetry Dashboard</span>
-                      <span class="flip-card-back-hint">Belt-Guard-AI · Multi-Sensor Telemetry &amp; CV Fault
-                        Detection</span>
+                      <span class="flip-card-back-label">// Industrial Monitoring &amp; Telemetry Dashboard</span>
+                      <span class="flip-card-back-hint">Belt-Guard-AI · Multi-Sensor Telemetry &amp; Anomaly Detection</span>
                     </div>
-                    <div>
+                    <div
+                      style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
                       <button class="dash-action-btn primary" onclick="openProjectDetail('belt-guard')">Case Study
                         →</button>
+                      <div class="card-flip-badge back-badge" style="margin: 0; padding: 0; border: none;">
+                        <span class="flip-hint-icon">↻</span> Tap to view telemetry
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2025,16 +2457,14 @@
               support predictive maintenance.
             </p>
             <div class="project-stack">
-              <span class="project-stack-tag">React 19</span>
-              <span class="project-stack-tag">TypeScript 6</span>
-              <span class="project-stack-tag">Vite 8</span>
-              <span class="project-stack-tag">Tailwind CSS 4</span>
+              <span class="project-stack-tag">JavaScript</span>
+              <span class="project-stack-tag">HTML5 / CSS3</span>
+              <span class="project-stack-tag">Vite</span>
               <span class="project-stack-tag">Recharts</span>
-              <span class="project-stack-tag">Lucide React</span>
             </div>
             <div class="project-status">
               <span class="project-status-dot status-shipped" aria-hidden="true"></span>
-              <span>Prototype Complete</span>
+              <span>SIH 2026 Main Shortlist · Internal Winner</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Vedd023/Belt-Guard-AI" target="_blank" rel="noopener noreferrer"
@@ -2088,7 +2518,7 @@
                       </button>
                     </div>
                     <div class="card-flip-badge">
-                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                      <span class="flip-hint-icon">↻</span> Hover or tap to view dashboard
                     </div>
                   </div>
                 </article>
@@ -2101,12 +2531,15 @@
                   <div class="dashboard-preview-overlay">
                     <div class="dash-overlay-badge">// Client-Side QR Suite &amp; Matrix Engine</div>
                     <div class="dash-overlay-title">LINKGRID Dashboard</div>
-                    <p class="dash-overlay-desc">Zero-build vector QR generator with real-time error correction, live
-                      telemetry, and instant export.</p>
+                    <p class="dash-overlay-desc">Zero-build vector QR generator with configurable Reed-Solomon error
+                      correction, custom matrix styling, and instant vector/raster export.</p>
                     <div class="dash-overlay-actions">
                       <a href="https://github.com/Vedd023/LINKGRID" target="_blank" rel="noopener noreferrer"
                         class="dash-action-btn">Repository ↗</a>
                       <button class="dash-action-btn primary" onclick="openProjectDetail('linkgrid')">Details →</button>
+                    </div>
+                    <div class="card-flip-badge back-badge">
+                      <span class="flip-hint-icon">↻</span> Tap card to view details
                     </div>
                   </div>
                 </div>
@@ -2124,7 +2557,7 @@
                     <div class="project-number">03</div>
                     <div class="project-status">
                       <span class="project-status-dot status-wip" aria-hidden="true"></span>
-                      SIH 2026
+                      SIH 2026 · PS 2
                     </div>
                   </div>
                   <div class="project-category">Expedition Management / IoT</div>
@@ -2134,11 +2567,10 @@
                     inventory management, logistics, risk monitoring, and AI-assisted operational decision-making.
                   </p>
                   <div class="project-stack">
-                    <span class="project-stack-tag">Next.js 15</span>
-                    <span class="project-stack-tag">TypeScript</span>
-                    <span class="project-stack-tag">Tailwind CSS</span>
-                    <span class="project-stack-tag">Supabase</span>
-                    <span class="project-stack-tag">PostgreSQL RLS</span>
+                    <span class="project-stack-tag">JavaScript</span>
+                    <span class="project-stack-tag">HTML5 / CSS3</span>
+                    <span class="project-stack-tag">Web Platform</span>
+                    <span class="project-stack-tag">REST APIs</span>
                   </div>
                   <div class="project-card-footer">
                     <div class="project-links">
@@ -2151,7 +2583,7 @@
                       </button>
                     </div>
                     <div class="card-flip-badge">
-                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                      <span class="flip-hint-icon">↻</span> Hover or tap to view dashboard
                     </div>
                   </div>
                 </article>
@@ -2162,14 +2594,17 @@
                   <img src="polaris_dashboard.svg" alt="POLARIS Ocean Buoy Telemetry Dashboard"
                     class="dashboard-preview-img" loading="lazy">
                   <div class="dashboard-preview-overlay">
-                    <div class="dash-overlay-badge">// SIH 2026 Marine Buoy Telemetry</div>
-                    <div class="dash-overlay-title">POLARIS Telemetry Hub</div>
-                    <p class="dash-overlay-desc">Polar drift coordinates, sensor fusion FFT waveforms, and satellite
-                      uplink telemetry in real time.</p>
+                    <div class="dash-overlay-badge">// SIH 2026 Expedition Management Platform</div>
+                    <div class="dash-overlay-title">POLARIS Mission Hub</div>
+                    <p class="dash-overlay-desc">Polar expedition planning, asset tracking, logistics workflows, and
+                      telemetry visualization for extreme environments.</p>
                     <div class="dash-overlay-actions">
                       <a href="https://github.com/Vedd023/Polaris" target="_blank" rel="noopener noreferrer"
                         class="dash-action-btn">Repository ↗</a>
                       <button class="dash-action-btn primary" onclick="openProjectDetail('polaris')">Details →</button>
+                    </div>
+                    <div class="card-flip-badge back-badge">
+                      <span class="flip-hint-icon">↻</span> Tap card to view details
                     </div>
                   </div>
                 </div>
@@ -2218,7 +2653,7 @@
                       </button>
                     </div>
                     <div class="card-flip-badge">
-                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                      <span class="flip-hint-icon">↻</span> Hover or tap to view dashboard
                     </div>
                   </div>
                 </article>
@@ -2240,6 +2675,9 @@
                         class="dash-action-btn">Live Demo ↗</a>
                       <button class="dash-action-btn primary" onclick="openProjectDetail('college-erp')">Case Study
                         →</button>
+                    </div>
+                    <div class="card-flip-badge back-badge">
+                      <span class="flip-hint-icon">↻</span> Tap card to view details
                     </div>
                   </div>
                 </div>
@@ -2339,6 +2777,7 @@
             <div class="toolkit-category-title">Programming Languages</div>
             <ul class="toolkit-list" role="list">
               <li>Python</li>
+              <li>SQL</li>
               <li>JavaScript</li>
             </ul>
           </div>
@@ -2346,25 +2785,26 @@
           <div class="toolkit-category reveal">
             <div class="toolkit-category-title">Web Development</div>
             <ul class="toolkit-list" role="list">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Vanilla JavaScript</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Canvas API</li>
             </ul>
           </div>
 
           <div class="toolkit-category reveal">
-            <div class="toolkit-category-title">Database &amp; Cloud</div>
+            <div class="toolkit-category-title">Databases &amp; Cloud</div>
             <ul class="toolkit-list" role="list">
-              <li>Cloud Firestore</li>
-              <li>Firebase</li>
+              <li>Firestore</li>
+              <li>Firebase Auth</li>
             </ul>
           </div>
 
           <div class="toolkit-category reveal">
-            <div class="toolkit-category-title">Editing &amp; Media</div>
+            <div class="toolkit-category-title">Tools &amp; Workflows</div>
             <ul class="toolkit-list" role="list">
-              <li>DaVinci Resolve</li>
-              <li>CapCut</li>
+              <li>GitHub</li>
+              <li>REST APIs</li>
+              <li>Anomaly Detection</li>
             </ul>
           </div>
         </div>
@@ -2377,8 +2817,28 @@
         <div class="separator reveal"></div>
         <div style="padding-top: var(--space-2xl);">
           <div class="reveal">
-            <div class="section-label">Journey</div>
-            <h2 class="section-heading">Where I've been</h2>
+            <div class="section-label">Journey &amp; Recognition</div>
+            <h2 class="section-heading">Milestones &amp; Experience</h2>
+          </div>
+
+          <!-- Key Recognitions & Achievements Highlight -->
+          <div class="achievements-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-2xl);">
+            <div style="background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: var(--space-md) var(--space-lg);">
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">🏆 Hackathon Finalist</div>
+              <div style="font-family: var(--font-display); font-size: 1.35rem; color: var(--text); margin-bottom: 4px;">Hackcelestial 3.0</div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">Pillai University · Tech Alegria 2026 · Sept 2026</div>
+              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                Selected as a finalist out of competing engineering teams in an intensive 24-hour national offline hackathon organized by Pillai University and CSI PCE at Dr. K. M. Vasudevan Pillai Campus, New Panvel.
+              </p>
+            </div>
+            <div style="background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: var(--space-md) var(--space-lg);">
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">🇮🇳 Internal Winner &amp; National Shortlist</div>
+              <div style="font-family: var(--font-display); font-size: 1.35rem; color: var(--text); margin-bottom: 4px;">Smart India Hackathon 2026</div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">Team Innovexa · Belt-Guard-AI (Main) &amp; POLARIS (PS 2)</div>
+              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                Won the college internal hackathon with <strong>Belt-Guard-AI</strong> as the main shortlisted idea for the national stage. Selected and engineered <strong>POLARIS</strong> as the 2nd problem statement platform.
+              </p>
+            </div>
           </div>
 
           <div class="timeline">
@@ -2396,20 +2856,27 @@
             <div class="timeline-item reveal">
               <div class="timeline-date">Oct 2026</div>
               <div class="timeline-title">POLARIS</div>
-              <div class="timeline-subtitle">Expedition Management Platform · SIH 2026</div>
+              <div class="timeline-subtitle">Expedition Management Platform · SIH 2026 (PS 2)</div>
               <p class="timeline-desc">
-                Integrated polar expedition management platform built with Next.js 15, TypeScript, and Supabase for
-                logistics, risk monitoring, and AI decision-making.
+                Selected as the second problem statement with Team Innovexa after winning the internal hackathon. An integrated web platform for polar expedition planning, asset tracking, and risk monitoring.
               </p>
             </div>
 
             <div class="timeline-item reveal">
               <div class="timeline-date">Sep 2026</div>
-              <div class="timeline-title">Belt-Guard-AI</div>
-              <div class="timeline-subtitle">Industrial AI Monitoring Dashboard</div>
+              <div class="timeline-title">Belt-Guard-AI — SIH 2026 Internal Winner</div>
+              <div class="timeline-subtitle">Smart India Hackathon 2026 · Main Shortlisted Idea · Team Innovexa</div>
               <p class="timeline-desc">
-                AI-powered industrial monitoring dashboard using simulated multi-sensor telemetry, sensor-fusion risk
-                scoring, and anomaly detection to monitor conveyor belt health.
+                Won the college internal hackathon with Belt-Guard-AI as the primary shortlisted idea for national nomination. An AI-powered industrial monitoring dashboard using multi-sensor telemetry, sensor-fusion risk scoring, and predictive maintenance anomaly detection.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Sep 2026</div>
+              <div class="timeline-title">Finalist — Hackcelestial 3.0</div>
+              <div class="timeline-subtitle">24-Hour Hackathon · Pillai University (Tech Alegria 2026)</div>
+              <p class="timeline-desc">
+                Selected as a finalist in a high-intensity 24-hour national offline hackathon organized by Pillai University and CSI PCE at Dr. K. M. Vasudevan Pillai Campus, New Panvel. Architected and presented a functional solution under a strict 24-hour sprint.
               </p>
             </div>
 
@@ -2568,6 +3035,12 @@
                 <button type="submit" class="btn-primary form-submit">
                   Send Message <span aria-hidden="true">→</span>
                 </button>
+                <p class="form-disclaimer"
+                  style="font-size: 11px; color: var(--text-muted); margin-top: 10px; font-family: var(--font-mono); line-height: 1.5;">
+                  Direct email: <a href="mailto:veddixit28@gmail.com"
+                    style="color: var(--accent); text-decoration: underline;">veddixit28@gmail.com</a> · Clicking Send
+                  pre-fills your email client.
+                </p>
               </form>
             </div>
           </div>
@@ -2613,11 +3086,11 @@
         category: 'Industrial AI / Monitoring',
         summary: 'An AI-powered industrial monitoring dashboard that uses simulated multi-sensor telemetry, sensor-fusion risk scoring, and anomaly detection to monitor conveyor belt health, identify potential faults, and support predictive maintenance.',
         problem: 'Industrial conveyor belt failures cause costly downtime, dangerous mechanical failures, and unmonitored hazards. Traditional maintenance relies on manual periodic inspections, which are inconsistent and usually detect damage after failure has begun.',
-        motivation: 'I wanted to apply machine learning to physical industrial infrastructure — investigating how real-time sensor streams and computer vision can predict equipment failures before catastrophic stoppage.',
-        solution: 'Belt-Guard-AI integrates multi-sensor telemetry (rotational RPM, temperature probes, dynamic load cells, and lateral alignment detectors) combined with simulated computer vision inspection. It streams real-time telemetry into a lightweight React dashboard for predictive health scoring and alert routing.',
+        motivation: 'Developed with Team Innovexa as our main shortlisted idea for Smart India Hackathon 2026, winning the college internal hackathon and earning nomination to the national stage.',
+        solution: 'Belt-Guard-AI integrates multi-channel telemetry (rotational RPM, temperature probes, dynamic load cells, and lateral alignment detectors) combined with sensor-fusion anomaly scoring. It streams synthetic high-frequency telemetry into a lightweight web dashboard for predictive health scoring and alert routing.',
         architecture: `
 ┌──────────────────┐     ┌───────────────┐     ┌──────────────────┐
-│  IoT Telemetry   │────▶│  Data Ingest  │────▶│  ML Pipeline     │
+│Simulated Telemetry│────▶│  Data Ingest  │────▶│  ML Pipeline     │
 │  RPM · Temp      │     │  Validation   │     │  Anomaly Scoring │
 │  Load · Drift    │     │  & Normalizer │     │  & Alert Engine  │
 └──────────────────┘     └───────────────┘     └────────┬─────────┘
@@ -2625,18 +3098,18 @@
                                                         ▼
                                                ┌──────────────────┐
                                                │  React Dashboard │
-                                               │  Real-time HUD   │
+                                               │  Telemetry HUD   │
                                                │  Visual Alarms   │
                                                └──────────────────┘`,
-        stack: ['React 19', 'TypeScript 6', 'Vite 8', 'Tailwind CSS 4', 'Recharts', 'React Router DOM', 'Lucide React', 'date-fns'],
-        stackRationale: 'TypeScript with React/Vite was selected for high-frequency dashboard re-rendering and strict type safety across sensor packet schemas. Vite enables rapid iteration with zero build latency.',
+        stack: ['JavaScript', 'HTML5', 'CSS3', 'Vite', 'Recharts'],
+        stackRationale: 'High-performance operator dashboard for simulated industrial telemetry with real-time chart rendering and anomaly detection.',
         contribution: 'Architected system flow, implemented sensor simulation and telemetry normalization pipelines, built the responsive operator dashboard in React, and authored documentation.',
         challenges: [
           'Synchronizing asynchronous data streams across 4 independent telemetry channels',
           'Minimizing dashboard re-renders during high-frequency data ingestion',
           'Balancing anomaly thresholds to minimize false positive stoppage alerts'
         ],
-        status: 'Prototype complete with simulated telemetry stream and operator HUD. Hardware sensor bench testing is planned next.',
+        status: 'Won internal hackathon for Smart India Hackathon 2026 as the primary shortlisted idea for the national stage. Operator HUD and synthetic telemetry pipelines complete.',
         limitations: 'Currently operates with high-fidelity simulated telemetry. Hardware deployment will require MCU firmware (ESP32/STM32) and industrial field calibration.',
         learned: 'Industrial telemetry patterns, high-frequency state management in React, and the critical role of fault tolerance in sensor networks.',
         future: ['Physical ESP32 edge microcontroller integration', 'Edge-quantized anomaly models for zero-cloud latency', 'Historical predictive maintenance scheduling calendar'],
@@ -2686,33 +3159,33 @@
         category: 'Expedition Management / IoT',
         summary: 'An integrated polar expedition management platform that streamlines expedition planning, asset and inventory management, logistics, risk monitoring, and AI-assisted operational decision-making.',
         problem: 'Polar and Southern Ocean research requires durable, autonomous sensing platforms that can operate in sub-zero seawater conditions for months at a time. Existing oceanographic drifters are prohibitively expensive.',
-        motivation: 'Smart India Hackathon 2026 Problem Statement PS 26065 challenged teams to engineer an ultra-low-cost autonomous ocean sensing buoy. Built with Team Innovexa.',
-        solution: 'POLARIS is designed as an autonomous oceanic sensing platform integrating water temperature, salinity, wave frequency, and current sensors with satellite data transmission and intelligent power management.',
+        motivation: 'Selected as the second problem statement (PS 26065) with Team Innovexa after winning the internal hackathon in Smart India Hackathon 2026, focusing on polar expedition logistics and telemetry.',
+        solution: 'POLARIS provides an integrated mission control and expedition management platform. It centralizes asset inventory, logistics tracking, field risk monitoring, and aggregated telemetry visualizations for extreme-environment operations.',
         architecture: `
 ┌──────────────────┐     ┌───────────────┐     ┌──────────────────┐
-│  Marine Sensors  │────▶│  Onboard MCU  │────▶│  Satellite Link  │
-│  Temp · Salinity │     │  Aggregation  │     │  Iridium / LoRa  │
-│  Wave Spectrum   │     │  Power Logic  │     │  Periodic Burst  │
+│ Field Telemetry  │────▶│  Backend API  │────▶│  Cloud Database  │
+│ Node Coordinates │     │  Ingest Route │     │  Authentication  │
+│ Asset En-Route   │     │  & Validation │     │  Real-time Sync  │
 └──────────────────┘     └───────────────┘     └────────┬─────────┘
                                                         │
                                                         ▼
                                                ┌──────────────────┐
-                                               │  Ground Station  │
-                                               │  Telemetry Map   │
-                                               │  Ocean Analysis  │
+                                               │  Mission Control │
+                                               │  Logistics UI    │
+                                               │  Analytics View  │
                                                └──────────────────┘`,
-        stack: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Supabase Auth', 'PostgreSQL RLS'],
-        stackRationale: 'Next.js 15 and Supabase power the modern expedition management platform with row-level security and high performance telemetry visualization.',
-        contribution: 'Contributing to system architecture, sensor fusion telemetry normalization, and the ground-station visualization dashboard as part of Team Innovexa.',
+        stack: ['JavaScript', 'HTML5', 'CSS3', 'REST APIs'],
+        stackRationale: 'Responsive expedition management interface with real-time operational views and asset logistics management.',
+        contribution: 'Contributing to web platform architecture, data schema design, and the mission control dashboard interface as part of Team Innovexa.',
         challenges: [
-          'Designing for extreme thermal fluctuations, biofouling, and corrosive seawater',
-          'Strict energy harvesting budgets for multi-month solar/battery autonomy',
-          'Optimizing satellite data payload sizes to minimize transmission costs'
+          'Structuring resilient offline-tolerant state management for low-connectivity environments',
+          'Designing intuitive role-based views for field operators and mission commanders',
+          'Rendering dense geospatial and telemetry metrics efficiently'
         ],
-        status: 'In active development — Smart India Hackathon 2026 internal stage.',
-        limitations: 'Currently at prototype design and laboratory testing stage prior to open-water deployment.',
-        learned: 'Sensor fusion principles, low-bandwidth communication constraints, and collaborative hardware-software engineering under hackathon constraints.',
-        future: ['Full physical sea-trial deployment', 'Edge ML wave spectrum anomaly detection', 'Solar energy optimization algorithm'],
+        status: 'In active development — SIH 2026 2nd Problem Statement with Team Innovexa.',
+        limitations: 'Currently in prototype development for the internal stage of Smart India Hackathon 2026.',
+        learned: 'Web dashboard architecture, collaborative hackathon software design, and ergonomics for complex mission workflows.',
+        future: ['Full field trial deployment with expedition teams', 'Offline sync service-worker integration', 'Automated anomaly detection for expedition routes'],
         repoUrl: 'https://github.com/Vedd023/Polaris',
         liveUrl: null,
         screenshots: []
@@ -2746,9 +3219,9 @@
           'Architecting modular CSS without relying on heavy external framework libraries'
         ],
         status: 'Shipped and deployed live on GitHub Pages. Earned 6 GitHub stars from the open-source community.',
-        limitations: 'Demonstration deployment operates on client-side session store. Production deployment would integrate a persistent PostgreSQL database.',
+        limitations: 'Demonstration deployment operates on client-side session store. Production deployment would integrate a persistent relational database.',
         learned: 'Component-driven vanilla JavaScript architecture, complex dashboard layout ergonomics, and GitHub Pages CI/CD deployment.',
-        future: ['Node.js backend with PostgreSQL database', 'Biometric attendance sync integration', 'Automated semester report card PDF generator'],
+        future: ['Node.js backend with relational database', 'Biometric attendance sync integration', 'Automated semester report card PDF generator'],
         repoUrl: 'https://github.com/Vedd023/College-ERP',
         liveUrl: 'https://vedd023.github.io/College-ERP/',
         screenshots: [
@@ -2832,8 +3305,8 @@
       }
 
       const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=veddixit28@gmail.com&su=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(bodyText)}`;
-      window.open(gmailUrl, '_blank');
+      const mailtoUrl = `mailto:veddixit28@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact from ' + name)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoUrl;
     }
 
     /* ── Project Detail Modal ── */
@@ -2996,31 +3469,47 @@
 
     /* ── 3D Flip Card Hover & Touch Interactions ── */
     const flipCards = document.querySelectorAll('.flip-card, .project-card-flip-wrapper');
+    let lastTouchTime = 0;
+
     flipCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.classList.add('is-flipped');
-      });
-      card.addEventListener('mouseleave', () => {
-        card.classList.remove('is-flipped');
-      });
-      // Touch support
+      // Touch / Tap support for mobile devices
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isTouchAction = false;
+
+      card.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isTouchAction = true;
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      card.addEventListener('touchend', (e) => {
+        if (!isTouchAction) return;
+        isTouchAction = false;
+        // Don't flip if user tapped an interactive element
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input')) return;
+
+        const touch = e.changedTouches[0];
+        const deltaX = Math.abs(touch.clientX - touchStartX);
+        const deltaY = Math.abs(touch.clientY - touchStartY);
+
+        // If finger movement is small (intentional tap, not a scroll)
+        if (deltaX < 14 && deltaY < 14) {
+          lastTouchTime = Date.now();
+          card.classList.toggle('is-flipped');
+        }
+      }, { passive: true });
+
+      // Click fallback (for desktop click or non-touch pointer)
       card.addEventListener('click', (e) => {
-        if (e.target.closest('a') || e.target.closest('button')) return;
+        // Prevent double-toggle from synthetic click following touchend
+        if (Date.now() - lastTouchTime < 500) return;
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input')) return;
         card.classList.toggle('is-flipped');
       });
     });
-
-    // Also flip featured visual when hovering over featured project container
-    const featuredCard = document.getElementById('project-belt-guard');
-    const featuredVisual = document.querySelector('.project-featured-visual.flip-card');
-    if (featuredCard && featuredVisual) {
-      featuredCard.addEventListener('mouseenter', () => {
-        featuredVisual.classList.add('is-flipped');
-      });
-      featuredCard.addEventListener('mouseleave', () => {
-        featuredVisual.classList.remove('is-flipped');
-      });
-    }
   </script>
 
 </body>

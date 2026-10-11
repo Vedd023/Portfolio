@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://veddixit.syntaxsyndicate.co.in/sitemap.xml
