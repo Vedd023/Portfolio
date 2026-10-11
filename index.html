@@ -4,2340 +4,3023 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VED'S GARAGE — Portfolio</title>
+  <title>Ved Dixit — AI &amp; Data Science Engineer</title>
+  <meta name="description"
+    content="Ved Dixit is an AI and Data Science engineering student who builds applications, explores intelligent systems, and creates digital experiences.">
+  <meta name="author" content="Ved Dixit">
+  <meta property="og:title" content="Ved Dixit — AI & Data Science Engineer">
+  <meta property="og:description"
+    content="Curious by nature. Builder by choice. I turn ideas into software, intelligent systems and digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vedd023.github.io/Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ved Dixit — AI & Data Science Engineer">
+  <link rel="canonical" href="https://vedd023.github.io/Portfolio">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
+
   <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════ */
     :root {
-      --bg: #0f0e0c;
-      --surface: #1a1815;
-      --surface2: #242220;
-      --border: #3a3530;
-      --rust: #c0440a;
-      --rust-bright: #e85512;
-      --amber: #d97b0a;
-      --steel: #8a9bb0;
-      --steel-light: #b8c8d8;
-      --cream: #e8dfc8;
-      --muted: #6a6560;
-      --green: #3a7a4a;
-      --green-bright: #4caf63;
-      --yellow: #d4a00a;
-      --red: #8a2a1a;
+      --bg: #101010;
+      --surface: #191919;
+      --surface-2: #222222;
+      --text: #F0EEE8;
+      --text-muted: #A5A5A5;
+      --accent: #E65335;
+      --accent-dim: #c44528;
+      --border: #2a2a2a;
+      --border-light: #333333;
+
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 3rem;
+      --space-xl: 5rem;
+      --space-2xl: 8rem;
+
+      --max-width: 1200px;
+      --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
-    body.light-mode {
-      --bg: #f4efdf;
-      --surface: #e4ddca;
-      --surface2: #d4ccb8;
-      --border: #b5ac96;
-      --cream: #1a1815;
-      --muted: #5c554b;
-      --rust: #a33807;
-      --rust-bright: #cf490f;
-      --amber: #b56405;
-      --steel: #3a4b57;
-      --steel-light: #212c36;
-    }
-
-    * {
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     body {
       background: var(--bg);
-      color: var(--cream);
-      font-family: 'Barlow', sans-serif;
-      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
-      cursor: default;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Clickable elements get pointer cursor */
-    a,
-    button,
-    [onclick],
-    .nav-tab,
-    .send-btn,
-    .cert-card,
-    .contact-link {
-      cursor: pointer;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* Prevent I-beam text cursor on UI chrome / labels */
-    .section-label,
-    .section-code,
-    .vehicle-type,
-    .vehicle-name,
-    .vehicle-year,
-    .status-badge,
-    .spec-key,
-    .spec-val,
-    .log-date,
-    .log-entry,
-    .odo-val,
-    .odo-label,
-    .media-title,
-    .car-label-info,
-    .car-spin-badge,
-    .garage-number,
-    .garage-name,
-    .garage-sub,
-    .stat-row,
-    .profile-id,
-    .skill-name,
-    .skill-pct,
-    .cert-name,
-    .cert-issuer,
-    .cert-icon,
-    .bay-title,
-    .link-label,
-    .link-val,
-    .link-arrow,
-    .footer-mark,
-    .card-desc,
-    .form-label,
-    nav,
-    header,
-    footer {
-      user-select: none;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    /* Noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
-
-    /* Scanlines */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
-      pointer-events: none;
-      z-index: 9998;
-    }
-
-    /* === HEADER === */
-    header {
-      border-bottom: 2px solid var(--rust);
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header-tape {
-      background: repeating-linear-gradient(-45deg,
-          var(--amber) 0px, var(--amber) 16px,
-          #0f0e0c 16px, #0f0e0c 32px);
-      height: 16px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .header-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      padding: 1.5rem 3rem;
-      background: var(--surface);
-      position: relative;
-    }
-
-    .theme-toggle-btn {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--cream);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      flex-shrink: 0;
-      margin-left: auto;
-      margin-right: 0;
-    }
-
-    .theme-toggle-btn:hover {
-      border-color: var(--rust-bright);
-      color: var(--rust-bright);
-      transform: scale(1.1);
-    }
-
-    .theme-toggle-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .garage-logo {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .garage-number {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--rust);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .garage-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(52px, 8vw, 96px);
-      line-height: 0.9;
-      color: var(--cream);
-      letter-spacing: 2px;
-    }
-
-    .garage-name span {
-      color: var(--rust-bright);
-    }
-
-    .garage-sub {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      letter-spacing: 6px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-top: 8px;
-    }
-
-    .header-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-align: right;
-      padding-bottom: 8px;
-    }
-
-    .stat-row {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-    }
-
-    .stat-row span {
-      color: var(--amber);
-    }
-
-    /* Live clock blink */
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0;
-      }
-    }
-
-    .clock-colon {
-      animation: blink 1s step-start infinite;
-      display: inline-block;
-    }
-
-    /* === NAV === */
-    nav {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1rem 0 3rem;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto;
-    }
-
-    .nav-tab {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 14px 24px;
+    button {
+      font-family: inherit;
       border: none;
       background: none;
       cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-      white-space: nowrap;
+      color: inherit;
     }
 
-    .nav-tab:hover {
-      color: var(--cream);
+    ::selection {
+      background: var(--accent);
+      color: var(--text);
     }
 
-    .nav-tab.active {
-      color: var(--rust-bright);
-      border-bottom-color: var(--rust-bright);
-    }
-
-    /* === SECTIONS === */
-    section {
-      display: none;
-      padding: 3rem;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    /* === GARAGE FLOOR === */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 2rem;
+    /* ═══════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════ */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
     }
 
     .section-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
       letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-xs);
     }
 
-    .section-line {
-      flex: 1;
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: var(--space-lg);
+    }
+
+    .separator {
+      width: 100%;
       height: 1px;
-      background: linear-gradient(to right, var(--border), transparent);
-    }
-
-    .section-code {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 2px;
-    }
-
-    /* === VEHICLE CARDS === */
-    .vehicles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2px;
-    }
-
-    .vehicle-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-      cursor: pointer;
-    }
-
-    .vehicle-card:hover {
-      border-color: var(--rust);
-    }
-
-    .vehicle-card:hover .vehicle-reveal {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Corner rivets */
-    .vehicle-card::before,
-    .vehicle-card::after {
-      content: '●';
-      position: absolute;
-      font-size: 5px;
-      color: var(--border);
-      z-index: 2;
-    }
-
-    .vehicle-card::before {
-      top: 8px;
-      left: 8px;
-    }
-
-    .vehicle-card::after {
-      top: 8px;
-      right: 8px;
-    }
-
-    .card-status-bar {
-      height: 4px;
-      width: 100%;
-    }
-
-    .status-shipped {
-      background: var(--green-bright);
-    }
-
-    .status-wip {
-      background: var(--amber);
-    }
-
-    .status-parked {
-      background: var(--muted);
-    }
-
-    .card-header {
-      padding: 1.25rem 1.25rem 0.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .vehicle-type {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--rust);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .vehicle-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-      color: var(--cream);
-      line-height: 1;
-    }
-
-    .vehicle-year {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .status-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border: 1px solid;
-      border-radius: 0;
-    }
-
-    .badge-shipped {
-      color: var(--green-bright);
-      border-color: var(--green-bright);
-    }
-
-    .badge-wip {
-      color: var(--amber);
-      border-color: var(--amber);
-    }
-
-    .badge-parked {
-      color: var(--muted);
-      border-color: var(--muted);
-    }
-
-    /* Spec sheet */
-    .spec-sheet {
-      margin: 0 1.25rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 0;
-    }
-
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 3px 0;
-    }
-
-    .spec-key {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .spec-val {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--steel-light);
-      letter-spacing: 1px;
-    }
-
-    .spec-val.hot {
-      color: var(--rust-bright);
-    }
-
-    .spec-val.warm {
-      color: var(--amber);
-    }
-
-    .spec-val.cool {
-      color: var(--steel);
-    }
-
-    /* Description */
-    .card-desc {
-      padding: 0.75rem 1.25rem;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* Build log */
-    .build-log {
-      margin: 0 1.25rem 1rem;
-      background: var(--surface2);
-      padding: 0.75rem;
-      border-left: 2px solid var(--rust);
-    }
-
-    .log-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--rust);
-      letter-spacing: 3px;
-      margin-bottom: 6px;
-    }
-
-    .log-entry {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      padding: 2px 0;
-      display: flex;
-      gap: 8px;
-    }
-
-    .log-entry .log-date {
-      color: var(--steel);
-      flex-shrink: 0;
-    }
-
-    /* Media Bay */
-    .media-bay {
-      margin: 0 1.25rem 1rem;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      padding: 0.5rem;
-    }
-
-    .media-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--amber);
-      letter-spacing: 3px;
-      margin-bottom: 6px;
-    }
-
-    .media-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .media-item {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .media-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(40%) contrast(110%);
-      transition: all 0.3s ease;
-    }
-
-    .media-item:hover img {
-      filter: grayscale(0%) contrast(100%);
-      transform: scale(1.05);
-    }
-
-    .media-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 14, 12, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      border: 1px solid var(--rust);
-    }
-
-    .media-overlay span {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--rust-bright);
-      letter-spacing: 1px;
-    }
-
-    .media-item:hover .media-overlay {
-      opacity: 1;
-    }
-
-    /* Odometer */
-    .odometer {
-      display: flex;
-      gap: 2px;
-      padding: 1rem 1.25rem;
-      border-top: 1px solid var(--border);
-      justify-content: space-between;
-    }
-
-    .odo-item {
-      text-align: center;
-    }
-
-    .odo-val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      color: var(--amber);
-      letter-spacing: 2px;
-      display: block;
-    }
-
-    .odo-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* === ABOUT SECTION — DRIVER PROFILE === */
-    .driver-profile {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-    }
-
-    .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
-
-    .profile-header {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .profile-photo-container {
-      position: relative;
-      width: 110px;
-      height: 135px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.6);
-      flex-shrink: 0;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .profile-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 23%;
-      /* crop perfectly on face */
-      filter: grayscale(12%) contrast(106%);
-      transition: filter 0.3s ease;
-    }
-
-    .profile-photo-container:hover .profile-photo {
-      filter: grayscale(0%) contrast(100%);
-    }
-
-    /* High tech HUD overlays */
-    .photo-scanline {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-          rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0) 50%,
-          rgba(0, 0, 0, 0.15) 50%,
-          rgba(0, 0, 0, 0.15));
-      background-size: 100% 4px;
-      pointer-events: none;
-      opacity: 0.7;
-      z-index: 2;
-    }
-
-    @keyframes scannerSweep {
-      0% {
-        top: 0%;
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 1;
-      }
-
-      100% {
-        top: 100%;
-        opacity: 0;
-      }
-    }
-
-    .photo-scanner-beam {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--rust-bright);
-      box-shadow: 0 0 8px var(--rust-bright);
-      animation: scannerSweep 3.5s linear infinite;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    .photo-border-bracket {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border: 2px solid var(--rust-bright);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    .photo-border-bracket.top-left {
-      top: 4px;
-      left: 4px;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .photo-border-bracket.top-right {
-      top: 4px;
-      right: 4px;
-      border-left: none;
-      border-bottom: none;
-    }
-
-    .photo-border-bracket.bottom-left {
-      bottom: 4px;
-      left: 4px;
-      border-right: none;
-      border-top: none;
-    }
-
-    .photo-border-bracket.bottom-right {
-      bottom: 4px;
-      right: 4px;
-      border-left: none;
-      border-top: none;
-    }
-
-    .profile-header-details {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 135px;
-      flex-grow: 1;
-    }
-
-    .profile-id-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-
-    .profile-id {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--rust);
-      letter-spacing: 4px;
-      margin-bottom: 0;
-    }
-
-    @keyframes pulseGreen {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.3);
-        opacity: 0.6;
-      }
-    }
-
-    .status-indicator {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1px;
-      color: #00ff66;
-      display: flex;
-      align-items: center;
-      background: rgba(0, 255, 102, 0.06);
-      padding: 2px 6px;
-      border: 1px solid rgba(0, 255, 102, 0.2);
-      border-radius: 2px;
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: 5px;
-      height: 5px;
-      background: #00ff66;
-      border-radius: 50%;
-      margin-right: 4px;
-      box-shadow: 0 0 6px #00ff66;
-      animation: pulseGreen 2.2s infinite;
-    }
-
-    .profile-name-big {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      line-height: 1.0;
-      color: var(--cream);
-      letter-spacing: 2px;
-      margin: 4px 0 0 0;
-    }
-
-    .driver-metadata-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.4rem;
-      background: rgba(0, 0, 0, 0.18);
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 4px;
-    }
-
-    .meta-item {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      display: flex;
-      gap: 4px;
-    }
-
-    .meta-lbl {
-      color: var(--rust);
-    }
-
-    .meta-val {
-      color: var(--cream);
-      font-weight: bold;
-    }
-
-    .text-amber {
-      color: var(--amber) !important;
-    }
-
-    .text-green {
-      color: #00ff66 !important;
-    }
-
-    .profile-bio {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.8;
+      background: var(--border);
     }
 
     /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
-    .reveal-delay-1 {
-      transition-delay: 0.1s;
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(16, 16, 16, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
     }
 
-    .reveal-delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .reveal-delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    .reveal-delay-4 {
-      transition-delay: 0.4s;
-    }
-
-    .profile-bio strong {
-      color: var(--cream);
-      font-weight: 600;
-    }
-
-    .skills-rack {
+    .nav-inner {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 2rem;
-    }
-
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
     }
 
-    .skill-name {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--cream);
-      letter-spacing: 2px;
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo-accent {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-    }
-
-    .skill-pct {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--rust-bright);
-    }
-
-    .skill-bar-track {
-      height: 3px;
-      background: var(--surface2);
+      color: var(--text-muted);
+      transition: color var(--transition);
       position: relative;
     }
 
-    .skill-bar-fill {
-      height: 100%;
-      background: linear-gradient(to right, var(--rust), var(--rust-bright));
-      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--text);
     }
 
-    /* Certifications wall */
-    .cert-wall {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition);
     }
 
-    .cert-card {
-      border: 1px solid var(--border);
-      padding: 1rem;
-      margin-bottom: 8px;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      transition: border-color 0.2s;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    .cert-card:hover {
-      border-color: var(--rust);
-    }
-
-    .cert-icon {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      color: var(--rust-bright);
-      line-height: 1;
-      min-width: 32px;
-    }
-
-    .cert-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: 1px;
-      margin-bottom: 2px;
-    }
-
-    .cert-issuer {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1px;
-    }
-
-    /* === CONTACT === */
-    .contact-bay {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-    }
-
-    .bay-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
-
-    .bay-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      color: var(--rust-bright);
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.75rem;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: gap 0.2s;
-    }
-
-    .contact-link:hover {
-      gap: 16px;
-    }
-
-    .contact-link:hover .link-arrow {
-      color: var(--rust-bright);
-    }
-
-    .link-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 2px;
+    .nav-resume {
+      font-family: var(--font-mono) !important;
+      font-size: 12px !important;
+      letter-spacing: 1px !important;
       text-transform: uppercase;
-      min-width: 80px;
+      color: var(--accent) !important;
+      border: 1px solid var(--accent);
+      padding: 6px 16px;
+      transition: all var(--transition) !important;
     }
 
-    .link-val {
-      font-family: 'Barlow', sans-serif;
-      font-size: 14px;
-      color: var(--cream);
-      flex: 1;
+    .nav-resume:hover {
+      background: var(--accent);
+      color: var(--bg) !important;
     }
 
-    .link-arrow {
-      font-size: 16px;
-      color: var(--border);
-      transition: color 0.2s;
+    .nav-resume::after {
+      display: none !important;
     }
 
-    .message-form {
-      display: flex;
+    /* Mobile menu */
+    .nav-toggle {
+      display: none;
       flex-direction: column;
-      gap: 12px;
+      gap: 5px;
+      padding: 4px;
     }
 
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all var(--transition);
     }
 
-    .form-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
     }
 
-    .form-input {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      padding: 10px 12px;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
     }
 
-    .form-input:focus {
-      border-color: var(--rust);
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
     }
 
-    .form-input::placeholder {
-      color: var(--muted);
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 64px);
+        height: calc(100dvh - 64px);
+        background: #101010 !important;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: var(--space-xl) var(--space-md);
+        gap: var(--space-lg);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+        overflow-y: auto;
+        border-top: 1px solid var(--border);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 15px;
+        padding: 8px 16px;
+      }
     }
 
-    .send-btn {
-      background: var(--rust);
-      border: none;
-      color: var(--cream);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 18px;
-      letter-spacing: 4px;
-      padding: 12px 24px;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 4px;
-    }
-
-    .send-btn:hover {
-      background: var(--rust-bright);
-    }
-
-    /* === FOOTER === */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-mark {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 2px;
-    }
-
-    .footer-mark span {
-      color: var(--rust);
-    }
-
-    .footer-social-row {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .footer-social-link {
+    /* ═══════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      transition: color 0.2s;
-    }
-
-    .footer-social-link:hover {
-      color: var(--rust-bright);
-    }
-
-    .footer-social-link svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .footer-tape {
-      background: repeating-linear-gradient(-45deg,
-          var(--amber) 0px, var(--amber) 16px,
-          #0f0e0c 16px, #0f0e0c 32px);
-      height: 16px;
-      border-top: 2px solid var(--border);
-    }
-
-    /* Animations */
-    @keyframes flicker {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      92% {
-        opacity: 1;
-      }
-
-      93% {
-        opacity: 0.4;
-      }
-
-      94% {
-        opacity: 1;
-      }
-
-      96% {
-        opacity: 0.6;
-      }
-
-      97% {
-        opacity: 1;
-      }
-    }
-
-    .garage-name {
-      animation: flicker 6s infinite;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .vehicle-card {
-      animation: fadeUp 0.5s ease both;
-    }
-
-    .vehicle-card:nth-child(1) {
-      animation-delay: 0.05s;
-    }
-
-    .vehicle-card:nth-child(2) {
-      animation-delay: 0.15s;
-    }
-
-    .vehicle-card:nth-child(3) {
-      animation-delay: 0.25s;
-    }
-
-    .vehicle-card:nth-child(4) {
-      animation-delay: 0.35s;
-    }
-
-    .vehicle-card:nth-child(5) {
-      animation-delay: 0.45s;
-    }
-
-    /* === 3D CAR SHOWCASE === */
-    .car-showcase {
-      background: #080706;
-      border: 1px solid var(--border);
-      padding: 1.25rem;
+      padding: var(--space-2xl) 0 var(--space-xl);
       position: relative;
       overflow: hidden;
     }
 
-    .car-showcase::before {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(230, 83, 53, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-bg::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--amber), var(--rust-bright), var(--amber), transparent);
-      animation: beamSweep 3s ease-in-out infinite;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
     }
 
-    @keyframes beamSweep {
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .hero-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      color: var(--text);
+      letter-spacing: -1px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-intro {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 520px;
+      border-left: 1px solid var(--border-light);
+      padding-left: var(--space-md);
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 14px 28px;
+      transition: all var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dim);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 1px solid var(--border-light);
+      padding: 14px 28px;
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-social {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+
+    .hero-social a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-social a:hover {
+      color: var(--text);
+    }
+
+    .hero-social svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .hero-location {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: var(--space-sm);
+    }
+
+    /* ═══════════════════════════════════════════
+       SELECTED WORK
+    ═══════════════════════════════════════════ */
+    .work {
+      padding: var(--space-2xl) 0;
+    }
+
+    /* Featured project — large editorial layout */
+    .project-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ═══════════════════════════════════════════
+       3D FLIP CARD SYSTEM (INTERACTIVE HOVER DASHBOARD)
+    ═══════════════════════════════════════════ */
+    .flip-card,
+    .project-card-flip-wrapper {
+      perspective: 1400px;
+      -webkit-perspective: 1400px;
+    }
+
+    /* Featured Project Flip Visual */
+    .project-featured-visual.flip-card {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      aspect-ratio: 16/10;
+      background: var(--surface);
+    }
+
+    .project-featured-visual .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Rotation triggers: hover on featured card or visual */
+    .project-featured:hover .flip-card-inner,
+    .project-featured.is-flipped .flip-card-inner,
+    .project-featured-visual:hover .flip-card-inner,
+    .project-featured-visual.is-flipped .flip-card-inner,
+    .flip-card:hover .flip-card-inner,
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .project-featured-visual .flip-card-front,
+    .project-featured-visual .flip-card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .project-featured-visual .flip-card-front {
+      transform: rotateY(0deg) translateZ(1px);
+    }
+
+    .project-featured-visual .flip-card-back {
+      transform: rotateY(180deg) translateZ(1px);
+      background: #0d0d0d;
+    }
+
+    .flip-dashboard-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: #0a0a0a;
+    }
+
+    .flip-card-back-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      display: block;
+      transition: transform 0.6s ease;
+      background: #0a0a0a;
+    }
+
+    .project-featured-visual:hover .flip-card-back-img {
+      transform: scale(1.02);
+    }
+
+    .flip-card-back-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 70%, transparent 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .flip-card-back-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .flip-card-back-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .hud-flip-prompt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .hud-flip-prompt .hud-flip-icon {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* Supporting Projects Flip Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .project-card-flip-wrapper {
+      position: relative;
+      min-height: 480px;
+      height: 100%;
+    }
+
+    .project-card-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-card-flip-wrapper:hover .project-card-flip-inner,
+    .project-card-flip-wrapper.is-flipped .project-card-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .project-card-flip-front,
+    .project-card-flip-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .project-card-flip-front {
+      transform: rotateY(0deg) translateZ(1px);
+    }
+
+    .project-card-flip-back {
+      transform: rotateY(180deg) translateZ(1px);
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card-flip-front .project-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: none;
+      background: transparent;
+      padding: var(--space-lg);
+    }
+
+    .project-card-footer {
+      margin-top: auto;
+      padding-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .card-flip-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity var(--transition), color var(--transition);
+    }
+
+    .project-card-flip-wrapper:hover .card-flip-badge {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .flip-hint-icon {
+      font-size: 12px;
+      color: var(--accent);
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card-flip-wrapper:hover .flip-hint-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Back Face Dashboard Preview */
+    .dashboard-preview-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background: #0a0a0a;
+      overflow: hidden;
+    }
+
+    .dashboard-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      display: block;
+      transition: transform 0.6s ease;
+      background: #0a0a0a;
+    }
+
+    .project-card-flip-wrapper:hover .dashboard-preview-img {
+      transform: scale(1.02);
+    }
+
+    .dashboard-preview-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px var(--space-md);
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.8) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .dash-overlay-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .dash-overlay-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .dash-overlay-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .dash-overlay-actions {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .dash-action-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      cursor: pointer;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+
+    .dash-action-btn:hover {
+      background: var(--surface-2);
+      border-color: var(--text);
+      color: var(--text);
+    }
+
+    .dash-action-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+    }
+
+    .dash-action-btn.primary:hover {
+      background: #ff6849;
+      border-color: #ff6849;
+      color: var(--bg);
+    }
+
+    .project-featured-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--transition);
+    }
+
+    .project-featured-visual:hover img {
+      transform: scale(1.03);
+    }
+
+    .telemetry-hud {
+      width: 100%;
+      height: 100%;
+      background: #141414;
+      border: 1px solid var(--border);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      position: relative;
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .hud-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #4caf63;
+    }
+
+    .hud-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4caf63;
+      box-shadow: 0 0 8px #4caf63;
+      animation: pulse-hud 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-hud {
 
       0%,
       100% {
-        opacity: 0.3;
-        transform: scaleX(0.5);
+        opacity: 1;
+        transform: scale(1);
       }
 
       50% {
-        opacity: 1;
-        transform: scaleX(1);
+        opacity: 0.35;
+        transform: scale(0.85);
       }
     }
 
-    #car3d-container {
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      display: block;
+    .hud-id {
+      color: var(--text-muted);
+      font-size: 10px;
     }
 
-    #car3d-container canvas {
-      display: block;
-      width: 100% !important;
-      height: 100% !important;
+    .hud-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: var(--space-xs) 0;
     }
 
-    .car-label-row {
+    @media (max-width: 600px) {
+      .hud-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .hud-metric {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+    }
+
+    .hud-label {
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .hud-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .hud-unit {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .hud-badge {
+      font-size: 9px;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+      color: #4caf63;
+    }
+
+    .hud-waveform-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hud-waveform-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .hud-freq {
+      color: var(--accent);
+    }
+
+    .hud-waveform {
+      width: 100%;
+      height: 44px;
+    }
+
+    .hud-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      padding-top: var(--space-xs);
       border-top: 1px solid var(--border);
     }
 
-    .car-label-info {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 2px;
-    }
-
-    .car-label-info span {
-      color: var(--amber);
-    }
-
-    .car-spin-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: var(--rust);
-      letter-spacing: 2px;
-      border: 1px solid var(--rust);
-      padding: 2px 6px;
-      animation: flicker 4s infinite;
-    }
-
-    /* Warning tape divider */
-    .tape-divider {
-      height: 6px;
-      background: repeating-linear-gradient(90deg,
-          var(--amber) 0px, var(--amber) 20px,
-          var(--bg) 20px, var(--bg) 40px);
-      margin: 2rem 0;
-      opacity: 0.3;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--rust);
-    }
-
-    @media (max-width: 700px) {
-      header .header-inner {
-        padding: 1.5rem;
-        grid-template-columns: 1fr;
-      }
-
-      .header-stats {
-        text-align: left;
-        display: none;
-      }
-
-      section {
-        padding: 1.5rem;
-      }
-
-      nav {
-        padding: 0 1rem;
-      }
-
-      .driver-profile,
-      .contact-bay {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        padding: 1.5rem;
-      }
-
-      .footer-social-row {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .vehicles-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .garage-name {
-        font-size: clamp(44px, 14vw, 72px);
-      }
-    }
-
-    /* === MEDIA MODAL === */
-    .media-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 14, 12, 0.95);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .media-modal.active {
-      display: flex;
-      animation: fadeUp 0.3s ease forwards;
-    }
-
-    .media-modal-content {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      width: 95%;
-      max-width: 1200px;
-      max-height: 90vh;
+    .project-featured-info {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      gap: var(--space-md);
     }
 
-    .media-modal-header {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid var(--border);
+    .project-number {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+    }
+
+    .project-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-stack-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .status-shipped {
+      background: #4caf63;
+    }
+
+    .status-wip {
+      background: #d4a00a;
+    }
+
+    .status-concept {
+      background: var(--text-muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--transition);
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    /* Supporting project cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      transition: background var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .project-card-flip-front .project-card:hover {
+      background: var(--surface-2);
+      border-color: var(--border);
+    }
+
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .project-card .project-title {
+      font-size: 1.5rem;
+    }
+
+    .project-card .project-desc {
+      font-size: 14px;
+      flex: 1;
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════════════════════ */
+    .about {
+      padding: var(--space-2xl) 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+
+    .about-bio {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .about-portrait-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: var(--space-sm);
+      display: inline-block;
+      max-width: 300px;
+    }
+
+    .about-portrait-frame {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--surface-2);
+    }
+
+    .about-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(105%);
+      transition: filter 0.4s var(--transition), transform 0.4s var(--transition);
+    }
+
+    .about-portrait-card:hover .about-portrait-img {
+      filter: grayscale(0%) contrast(100%);
+      transform: scale(1.02);
+    }
+
+    .about-portrait-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 12px;
+      background: linear-gradient(to top, rgba(16, 16, 16, 0.92), transparent);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--surface2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
     }
 
-    .media-modal-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 14px;
-      color: var(--amber);
-      letter-spacing: 2px;
+    .about-portrait-status {
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .media-modal-close {
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 24px;
-      cursor: pointer;
-      line-height: 1;
-      transition: color 0.2s;
-    }
-
-    .media-modal-close:hover {
-      color: var(--rust-bright);
-    }
-
-    /* Modal media items — override card .media-item styles */
-    .media-modal .media-item {
-      position: static;
-      aspect-ratio: unset;
-      border: none;
-      overflow: visible;
+    .about-portrait-caption {
+      padding-top: var(--space-xs);
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      cursor: default !important;
+      gap: 2px;
     }
 
-    .media-modal .media-item img,
-    .media-modal-img {
-      cursor: pointer !important;
+    .about-portrait-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text);
     }
 
-    .media-modal .media-item a {
-      display: block;
-      cursor: pointer;
-    }
-
-    .media-modal .media-item a:hover .media-modal-img,
-    .media-modal .media-item a:hover img {
-      border-color: var(--rust-bright);
-      box-shadow: 0 0 16px rgba(232, 85, 18, 0.3);
-    }
-
-    .media-caption {
-      font-family: 'Share Tech Mono', monospace;
+    .about-portrait-role {
+      font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      border-left: 2px solid var(--rust);
-      padding-left: 8px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
     }
 
-    .media-modal-body {
-      padding: 1.5rem;
-      overflow-y: auto;
+    .about-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .about-text p {
+      margin-bottom: var(--space-md);
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-approach {
+      border-left: 1px solid var(--border-light);
+      padding-left: var(--space-lg);
+    }
+
+    .about-approach-item {
+      margin-bottom: var(--space-lg);
+    }
+
+    .about-approach-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-approach-item p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOOLKIT SECTION
+    ═══════════════════════════════════════════ */
+    .toolkit {
+      padding: var(--space-2xl) 0;
+    }
+
+    .toolkit-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
     }
 
-    @media (max-width: 900px) {
-      .media-modal-body {
-        grid-template-columns: 1fr;
-      }
+    .toolkit-category {
+      background: var(--surface);
+      padding: var(--space-lg);
     }
 
-    .media-modal-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      object-position: center;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-      cursor: pointer;
-      transition: border-color 0.3s;
+    .toolkit-category-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
     }
 
-    .media-modal-img:hover {
-      border-color: var(--rust-bright);
-      box-shadow: 0 0 20px rgba(232, 85, 18, 0.4);
+    .toolkit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
     }
 
-    /* Lightbox Modal */
-    .lightbox-modal {
-      display: none;
-      position: fixed;
-      z-index: 10000;
+    .toolkit-list li {
+      font-size: 15px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      transition: color var(--transition);
+    }
+
+    .toolkit-list li:hover {
+      color: var(--text);
+    }
+
+    .toolkit-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--border-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       JOURNEY SECTION
+    ═══════════════════════════════════════════ */
+    .journey {
+      padding: var(--space-2xl) 0;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
       left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(6, 5, 5, 0.95);
-      backdrop-filter: blur(10px);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      cursor: pointer;
-      /* Click background to close */
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
     }
 
-    .lightbox-modal.active {
-      display: flex;
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-xl);
     }
 
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 80vh;
-      border: 2px solid var(--rust);
-      border-radius: 6px;
-      box-shadow: 0 0 35px rgba(232, 85, 18, 0.3);
-      object-fit: contain;
-      animation: zoom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: default;
-      /* Normal arrow cursor over the image */
+    .timeline-item:last-child {
+      padding-bottom: 0;
     }
 
-    @keyframes zoom {
-      from {
-        transform: scale(0.92);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .lightbox-close {
+    .timeline-item::before {
+      content: '';
       position: absolute;
-      top: 25px;
-      right: 35px;
-      color: var(--muted);
-      font-size: 44px;
-      font-weight: bold;
-      transition: color 0.2s;
-      cursor: pointer;
-      font-family: sans-serif;
-      user-select: none;
+      left: calc(-1 * var(--space-lg));
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: var(--bg);
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      transform: translateX(-3.5px);
     }
 
-    .lightbox-close:hover {
-      color: var(--rust-bright);
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
     }
 
-    .lightbox-caption {
-      margin-top: 18px;
-      text-align: center;
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline-subtitle {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
       letter-spacing: 1px;
-      border-left: 3px solid var(--rust);
-      padding: 0 12px;
-      max-width: 80%;
-      line-height: 1.4;
-      cursor: default;
+      margin-bottom: var(--space-xs);
     }
 
-    .view-media-btn {
-      background: rgba(192, 68, 10, 0.8);
-      color: var(--cream);
-      border: 1px solid var(--rust-bright);
-      padding: 4px 8px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT SECTION
+    ═══════════════════════════════════════════ */
+    .contact {
+      padding: var(--space-2xl) 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .contact-cta {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-text {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      padding: var(--space-md) var(--space-md);
+      transition: all var(--transition);
+    }
+
+    .contact-link-item:hover {
+      background: var(--surface-2);
+    }
+
+    .contact-link-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .contact-link-value {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .contact-link-arrow {
+      font-size: 18px;
+      color: var(--text-muted);
+      transition: transform var(--transition);
+    }
+
+    .contact-link-item:hover .contact-link-arrow {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 14px 16px;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent);
+    }
+
+    .form-input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: var(--space-lg) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer-right a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .footer-right a:hover {
+      color: var(--text);
+    }
+
+    /* ═══════════════════════════════════════════
+       PROJECT DETAIL MODAL
+    ═══════════════════════════════════════════ */
+    .project-detail-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      overflow-y: auto;
+    }
+
+    .project-detail-overlay.active {
+      display: block;
+    }
+
+    .project-detail {
+      max-width: 900px;
+      margin: var(--space-xl) auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: var(--space-xl);
+      position: relative;
+    }
+
+    .project-detail-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
       letter-spacing: 1px;
       cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 8px;
     }
 
-    .view-media-btn:hover {
-      background: var(--rust-bright);
-      transform: scale(1.05);
+    .project-detail-close:hover {
+      color: var(--accent);
+    }
+
+    .detail-section {
+      margin-bottom: var(--space-lg);
+    }
+
+    .detail-section-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-section p,
+    .detail-section li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .detail-section ul {
+      padding-left: var(--space-md);
+      list-style: none;
+    }
+
+    .detail-section ul li::before {
+      content: '—';
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    /* Architecture diagram */
+    .arch-diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: var(--space-lg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 2;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    /* Modal Screenshot Gallery */
+    .detail-screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .detail-screenshot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-screenshot-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .detail-screenshot-caption {
+      padding: var(--space-sm);
+    }
+
+    .detail-screenshot-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .detail-screenshot-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Modal Project-to-Project Navigation */
+    .detail-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .detail-nav-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      transition: all var(--transition);
+    }
+
+    .detail-nav-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: var(--surface-2);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .project-featured {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      .about-approach {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border-light);
+        padding-top: var(--space-lg);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolkit-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-detail {
+        margin: var(--space-md);
+        padding: var(--space-lg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-headline {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+
+      .toolkit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        justify-content: center;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       FOCUS STATES (Accessibility)
+    ═══════════════════════════════════════════ */
+    a:focus-visible,
+    button:focus-visible,
+    .form-input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-md);
+      background: var(--accent);
+      color: var(--bg);
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      z-index: 1000;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus {
+      top: var(--space-sm);
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="header-tape"></div>
-    <div class="header-inner">
-      <div class="garage-logo">
-        <div class="garage-number">// EST. 2024 — UNIT 07</div>
-        <div class="garage-name">VED'S<br><span>GARAGE</span></div>
-        <div class="garage-sub">Full-Stack Engineer · AI Builder · Workshop</div>
-      </div>
-      <div class="header-stats">
-        <div class="stat-row">VEHICLES IN BAY: <span>01</span></div>
-        <div class="stat-row">SHIPPED: <span>01</span></div>
-        <div class="stat-row">IN PROGRESS: <span>00</span></div>
-        <div class="stat-row">TIME: <span id="live-clock">--<span class="clock-colon">:</span>--</span></div>
-      </div>
-    </div>
-  </header>
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link" id="skip-link">Skip to content</a>
 
-  <nav>
-    <button class="nav-tab active" onclick="showSection('garage')">⬡ THE GARAGE</button>
-    <button class="nav-tab" onclick="showSection('driver')">◈ DRIVER PROFILE</button>
-    <button class="nav-tab" onclick="showSection('contact')">◉ CONTACT BAY</button>
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" onclick="toggleTheme()">
-      <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    </button>
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Ved Dixit - Home">
+        V<span class="nav-logo-accent">D</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#work">Selected Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Ved_Dixit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume">Resume</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- === GARAGE SECTION === -->
-  <section id="garage" class="active">
-    <div class="section-header reveal">
-      <div class="section-label">PROJECT VEHICLES</div>
-      <div class="section-line"></div>
-      <div class="section-code">GRG-001 / ACTIVE FLOOR</div>
-    </div>
+  <main id="main-content">
 
-    <div class="vehicles-grid">
-
-      <!-- Vehicle 1 -->
-      <div class="vehicle-card">
-        <div class="card-status-bar status-shipped"></div>
-        <div class="card-header">
-          <div>
-            <div class="vehicle-type">// Web Platform</div>
-            <div class="vehicle-name">COLLEGE ERP</div>
-            <div class="vehicle-year">BUILD-2025 · REG# CE-001</div>
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-            <div class="status-badge badge-shipped">SHIPPED</div>
-            <button class="view-media-btn" onclick="openMediaModal('college-erp')">VIEW SCREENSHOTS ↗</button>
-          </div>
-        </div>
-        <div class="spec-sheet">
-          <div class="spec-row">
-            <span class="spec-key">ENGINE</span>
-            <span class="spec-val hot">HTML · CSS · JavaScript</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">FUEL</span>
-            <span class="spec-val warm">Role-based Auth · REST API</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">CHASSIS</span>
-            <span class="spec-val cool">GitHub Pages · Responsive</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">TOP SPEED</span>
-            <span class="spec-val hot">3 role dashboards</span>
-          </div>
-        </div>
-        <div class="card-desc">
-          Full-featured College ERP system — EduNexus. Student, Faculty &amp; Admin dashboards with attendance tracking,
-          grade management, and institutional analytics. Live on GitHub Pages.
+    <!-- ═══════ HERO ═══════ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-meta reveal">
+          <span class="hero-meta-dot" aria-hidden="true"></span>
+          Ved Dixit — AI &amp; Data Science Engineering
         </div>
 
-        <!-- 3D Rotating Car -->
-        <div class="car-showcase">
-          <div class="media-title">// PROJECT VEHICLE — 3D · 360° TURNTABLE</div>
-          <div id="car3d-container"></div>
-          <div class="car-label-row">
-            <div class="car-label-info">MODEL: <span>COLLEGE ERP</span> · PLATE: <span>EDUNEXUS</span></div>
-            <div class="car-spin-badge">⟳ 3D ROTATING</div>
-          </div>
+        <h1 class="hero-headline reveal">
+          Curious by<br>Nature. <em>Builder</em><br>by Choice.
+        </h1>
+
+        <p class="hero-sub reveal">
+          I turn ideas into software, intelligent systems and digital experiences.
+        </p>
+
+        <div class="hero-intro reveal">
+          AI &amp; Data Science engineering student with hands-on experience in web development and cloud
+          technologies, building practical applications that solve real-world problems — from industrial
+          monitoring systems to user-focused web platforms.
         </div>
 
-        <div class="build-log">
-          <div class="log-title">// BUILD LOG</div>
-          <div class="log-entry"><span class="log-date">MAY 20</span>Live on GitHub Pages. Shipped.</div>
-          <div class="log-entry"><span class="log-date">APR 15</span>Admin panel + analytics done</div>
-          <div class="log-entry"><span class="log-date">MAR 10</span>Role-based auth system built</div>
+        <div class="hero-ctas reveal">
+          <a href="#work" class="btn-primary">
+            Explore My Work
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a href="Ved_Dixit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Download Resume
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
-        <div class="odometer">
-          <div class="odo-item"><span class="odo-val">3</span><span class="odo-label">Roles</span></div>
-          <div class="odo-item"><span class="odo-val">10+</span><span class="odo-label">Modules</span></div>
-          <div class="odo-item"><span class="odo-val">LIVE</span><span class="odo-label">Status</span></div>
-          <div class="odo-item"><span class="odo-val">2025</span><span class="odo-label">Vintage</span></div>
+
+        <div class="hero-social reveal">
+          <a href="https://github.com/Vedd023" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z" />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/ved-dixit-b279983a1" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="hero-location reveal">
+          <span aria-hidden="true">◉</span> Navi Mumbai, India — Open to internships
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- === DRIVER PROFILE === -->
-  <section id="driver">
-    <div class="section-header reveal">
-      <div class="section-label">DRIVER FILE</div>
-      <div class="section-line"></div>
-      <div class="section-code">DRV-001 / CREDENTIALS</div>
-    </div>
-
-    <div class="driver-profile">
-      <div class="profile-card">
-        <div class="profile-header">
-          <div class="profile-photo-container"
-            onclick="openLightbox('profile.jpg', '// DRIVER FILE — VED DIXIT — LEAD BUILDER')">
-            <img src="profile.jpg" alt="Ved Dixit" class="profile-photo">
-            <div class="photo-scanline"></div>
-            <div class="photo-scanner-beam"></div>
-            <div class="photo-border-bracket top-left"></div>
-            <div class="photo-border-bracket top-right"></div>
-            <div class="photo-border-bracket bottom-left"></div>
-            <div class="photo-border-bracket bottom-right"></div>
-          </div>
-          <div class="profile-header-details">
-            <div class="profile-id-row">
-              <span class="profile-id">// DRIVER ID — #VED-07</span>
-              <span class="status-indicator"><span class="status-dot"></span> ACTIVE</span>
-            </div>
-            <div class="profile-name-big">VED DIXIT</div>
-            <div class="driver-metadata-grid">
-              <div class="meta-item"><span class="meta-lbl">CLASS:</span><span
-                  class="meta-val text-amber">S-CLASS</span></div>
-              <div class="meta-item"><span class="meta-lbl">ROLE:</span><span class="meta-val">LEAD BUILDER</span></div>
-              <div class="meta-item"><span class="meta-lbl">EXP:</span><span class="meta-val">1 YEAR</span></div>
-              <div class="meta-item"><span class="meta-lbl">STATUS:</span><span
-                  class="meta-val text-green">ONLINE</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="profile-bio">
-          I'm an avid cricket fan who enjoys getting out on the road — whether that's travelling to new places or riding
-          bikes. I have a genuine curiosity for learning, always open to picking up new skills and knowledge. Outside of
-          that, I'm passionate about mobile technology and everything that comes with it. I'm also multilingual,
-          comfortable in four languages.
+    <!-- ═══════ SELECTED WORK ═══════ -->
+    <section class="work" id="work" aria-label="Selected work">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Selected Work</div>
+          <h2 class="section-heading">Projects I've built</h2>
         </div>
 
-        <div class="skills-rack">
-          <div class="tape-divider"></div>
-          <div
-            style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--rust);letter-spacing:4px;margin-bottom:8px;">
-            // SKILL RACK</div>
+        <!-- Project 01 — Belt-Guard-AI (Featured) -->
+        <article class="project-featured reveal" id="project-belt-guard">
+          <div class="project-featured-visual flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT: Telemetry HUD -->
+              <div class="flip-card-front">
+                <div class="telemetry-hud" role="img" aria-label="Belt-Guard-AI sensor telemetry visualization">
+                  <div class="hud-header">
+                    <div class="hud-status">
+                      <span class="hud-pulse" aria-hidden="true"></span>
+                      <span>LIVE SENSOR STREAM</span>
+                    </div>
+                    <div class="hud-id">BELT-MONITOR // UNIT-04</div>
+                  </div>
 
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Python</span>
-              <span class="skill-pct">50%</span>
-            </div>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill" style="width:50%"></div>
+                  <div class="hud-metrics">
+                    <div class="hud-metric">
+                      <div class="hud-label">ROTATION</div>
+                      <div class="hud-value">1,420 <span class="hud-unit">RPM</span></div>
+                      <div class="hud-badge status-ok">NOMINAL</div>
+                    </div>
+                    <div class="hud-metric">
+                      <div class="hud-label">TEMP</div>
+                      <div class="hud-value">41.8 <span class="hud-unit">°C</span></div>
+                      <div class="hud-badge status-ok">STABLE</div>
+                    </div>
+                    <div class="hud-metric">
+                      <div class="hud-label">LATERAL DRIFT</div>
+                      <div class="hud-value">0.14 <span class="hud-unit">°</span></div>
+                      <div class="hud-badge status-ok">CALIBRATED</div>
+                    </div>
+                    <div class="hud-metric">
+                      <div class="hud-label">LOAD</div>
+                      <div class="hud-value">84 <span class="hud-unit">%</span></div>
+                      <div class="hud-badge status-ok">OPTIMAL</div>
+                    </div>
+                  </div>
+
+                  <div class="hud-waveform-wrap">
+                    <div class="hud-waveform-header">
+                      <span>VIBRATION SENSOR TELEMETRY (100 Hz FFT)</span>
+                      <span class="hud-freq">PEAK: 0.12 mm/s</span>
+                    </div>
+                    <svg class="hud-waveform" viewBox="0 0 400 50" preserveAspectRatio="none" aria-hidden="true">
+                      <path d="M0,25 Q25,8 50,25 T100,25 T150,10 T200,40 T250,25 T300,15 T350,35 T400,25" fill="none"
+                        stroke="#E65335" stroke-width="2" />
+                      <path d="M0,25 Q25,18 50,25 T100,25 T150,18 T200,32 T250,25 T300,20 T350,30 T400,25" fill="none"
+                        stroke="#555" stroke-width="1" stroke-dasharray="2,2" />
+                    </svg>
+                  </div>
+
+                  <div class="hud-footer">
+                    <span>CV INSPECTION: SURFACE NOMINAL (CONF: 99.4%)</span>
+                    <span>UPTIME 148H 22M</span>
+                  </div>
+                  <div class="hud-flip-prompt">
+                    <span class="hud-flip-icon">↻</span>
+                    <span>HOVER CARD TO ROTATE &amp; VIEW LIVE DASHBOARD</span>
+                  </div>
+                </div>
+              </div>
+              <!-- BACK: Dashboard Screenshot -->
+              <div class="flip-card-back">
+                <div class="flip-dashboard-container">
+                  <img src="beltguard_dashboard.jpg" alt="Belt-Guard-AI Industrial Vision &amp; Telemetry Dashboard"
+                    class="flip-card-back-img" loading="lazy">
+                  <div class="flip-card-back-overlay">
+                    <div>
+                      <span class="flip-card-back-label">// Industrial Vision &amp; Telemetry Dashboard</span>
+                      <span class="flip-card-back-hint">Belt-Guard-AI · Multi-Sensor Telemetry &amp; CV Fault
+                        Detection</span>
+                    </div>
+                    <div>
+                      <button class="dash-action-btn primary" onclick="openProjectDetail('belt-guard')">Case Study
+                        →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">HTML</span>
-              <span class="skill-pct">50%</span>
+          <div class="project-featured-info">
+            <div class="project-number">01</div>
+            <div class="project-category">Industrial AI / Monitoring</div>
+            <h3 class="project-title">Belt-Guard-AI</h3>
+            <p class="project-desc">
+              An AI-powered industrial monitoring dashboard that uses simulated multi-sensor telemetry, sensor-fusion
+              risk scoring, and anomaly detection to monitor conveyor belt health, identify potential faults, and
+              support predictive maintenance.
+            </p>
+            <div class="project-stack">
+              <span class="project-stack-tag">React 19</span>
+              <span class="project-stack-tag">TypeScript 6</span>
+              <span class="project-stack-tag">Vite 8</span>
+              <span class="project-stack-tag">Tailwind CSS 4</span>
+              <span class="project-stack-tag">Recharts</span>
+              <span class="project-stack-tag">Lucide React</span>
             </div>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill" style="width:50%"></div>
+            <div class="project-status">
+              <span class="project-status-dot status-shipped" aria-hidden="true"></span>
+              <span>Prototype Complete</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vedd023/Belt-Guard-AI" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="View Belt-Guard-AI on GitHub">
+                Repository <span aria-hidden="true">↗</span>
+              </a>
+              <button class="project-link" onclick="openProjectDetail('belt-guard')"
+                aria-label="View Belt-Guard-AI details">
+                Case Study <span aria-hidden="true">→</span>
+              </button>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">CSS</span>
-              <span class="skill-pct">40%</span>
-            </div>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill" style="width:40%"></div>
+        </article>
+
+        <!-- Supporting projects grid -->
+        <div class="projects-grid">
+
+          <!-- Project 02 — LINKGRID -->
+          <div class="project-card-flip-wrapper reveal">
+            <div class="project-card-flip-inner">
+              <!-- FRONT -->
+              <div class="project-card-flip-front">
+                <article class="project-card" id="project-linkgrid">
+                  <div class="project-card-header">
+                    <div class="project-number">02</div>
+                    <div class="project-status">
+                      <span class="project-status-dot status-shipped" aria-hidden="true"></span>
+                      Shipped
+                    </div>
+                  </div>
+                  <div class="project-category">Web Application</div>
+                  <h3 class="project-title">LINKGRID</h3>
+                  <p class="project-desc">
+                    LinkGrid is a web-based tool that shortens long URLs and converts links into QR codes. It makes
+                    links easier to share and access while providing a simple and user-friendly interface.
+                  </p>
+                  <div class="project-stack">
+                    <span class="project-stack-tag">HTML</span>
+                    <span class="project-stack-tag">CSS</span>
+                    <span class="project-stack-tag">JavaScript</span>
+                    <span class="project-stack-tag">QR Engine</span>
+                  </div>
+                  <div class="project-card-footer">
+                    <div class="project-links">
+                      <a href="https://github.com/Vedd023/LINKGRID" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        Repository <span aria-hidden="true">↗</span>
+                      </a>
+                      <button class="project-link" onclick="openProjectDetail('linkgrid')">
+                        Details <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                    <div class="card-flip-badge">
+                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- BACK: Real Dashboard Vector Preview -->
+              <div class="project-card-flip-back">
+                <div class="dashboard-preview-card">
+                  <img src="linkgrid_dashboard.svg" alt="LINKGRID QR Engine Dashboard" class="dashboard-preview-img"
+                    loading="lazy">
+                  <div class="dashboard-preview-overlay">
+                    <div class="dash-overlay-badge">// Client-Side QR Suite &amp; Matrix Engine</div>
+                    <div class="dash-overlay-title">LINKGRID Dashboard</div>
+                    <p class="dash-overlay-desc">Zero-build vector QR generator with real-time error correction, live
+                      telemetry, and instant export.</p>
+                    <div class="dash-overlay-actions">
+                      <a href="https://github.com/Vedd023/LINKGRID" target="_blank" rel="noopener noreferrer"
+                        class="dash-action-btn">Repository ↗</a>
+                      <button class="dash-action-btn primary" onclick="openProjectDetail('linkgrid')">Details →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Java</span>
-              <span class="skill-pct">40%</span>
-            </div>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill" style="width:40%"></div>
+
+          <!-- Project 03 — Polaris -->
+          <div class="project-card-flip-wrapper reveal">
+            <div class="project-card-flip-inner">
+              <!-- FRONT -->
+              <div class="project-card-flip-front">
+                <article class="project-card" id="project-polaris">
+                  <div class="project-card-header">
+                    <div class="project-number">03</div>
+                    <div class="project-status">
+                      <span class="project-status-dot status-wip" aria-hidden="true"></span>
+                      SIH 2026
+                    </div>
+                  </div>
+                  <div class="project-category">Expedition Management / IoT</div>
+                  <h3 class="project-title">POLARIS</h3>
+                  <p class="project-desc">
+                    An integrated polar expedition management platform that streamlines expedition planning, asset and
+                    inventory management, logistics, risk monitoring, and AI-assisted operational decision-making.
+                  </p>
+                  <div class="project-stack">
+                    <span class="project-stack-tag">Next.js 15</span>
+                    <span class="project-stack-tag">TypeScript</span>
+                    <span class="project-stack-tag">Tailwind CSS</span>
+                    <span class="project-stack-tag">Supabase</span>
+                    <span class="project-stack-tag">PostgreSQL RLS</span>
+                  </div>
+                  <div class="project-card-footer">
+                    <div class="project-links">
+                      <a href="https://github.com/Vedd023/Polaris" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        Repository <span aria-hidden="true">↗</span>
+                      </a>
+                      <button class="project-link" onclick="openProjectDetail('polaris')">
+                        Details <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                    <div class="card-flip-badge">
+                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- BACK: Real Dashboard Vector Preview -->
+              <div class="project-card-flip-back">
+                <div class="dashboard-preview-card">
+                  <img src="polaris_dashboard.svg" alt="POLARIS Ocean Buoy Telemetry Dashboard"
+                    class="dashboard-preview-img" loading="lazy">
+                  <div class="dashboard-preview-overlay">
+                    <div class="dash-overlay-badge">// SIH 2026 Marine Buoy Telemetry</div>
+                    <div class="dash-overlay-title">POLARIS Telemetry Hub</div>
+                    <p class="dash-overlay-desc">Polar drift coordinates, sensor fusion FFT waveforms, and satellite
+                      uplink telemetry in real time.</p>
+                    <div class="dash-overlay-actions">
+                      <a href="https://github.com/Vedd023/Polaris" target="_blank" rel="noopener noreferrer"
+                        class="dash-action-btn">Repository ↗</a>
+                      <button class="dash-action-btn primary" onclick="openProjectDetail('polaris')">Details →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">DaVinci</span>
-              <span class="skill-pct">60%</span>
+
+          <!-- Project 04 — College ERP -->
+          <div class="project-card-flip-wrapper reveal">
+            <div class="project-card-flip-inner">
+              <!-- FRONT -->
+              <div class="project-card-flip-front">
+                <article class="project-card" id="project-college-erp">
+                  <div class="project-card-header">
+                    <div class="project-number">04</div>
+                    <div class="project-status">
+                      <span class="project-status-dot status-shipped" aria-hidden="true"></span>
+                      Live · 6★
+                    </div>
+                  </div>
+                  <div class="project-category">Web Platform</div>
+                  <h3 class="project-title">College ERP — EduNexus</h3>
+                  <p class="project-desc">
+                    College ERP is a web-based college management system that helps manage students, faculty,
+                    attendance, exams, grades, timetable, assignments, and fees. It provides separate dashboards for
+                    Admin, Faculty, and Students and uses HTML, CSS, JavaScript, and Firebase.
+                  </p>
+                  <div class="project-stack">
+                    <span class="project-stack-tag">HTML + CSS</span>
+                    <span class="project-stack-tag">Vanilla JavaScript</span>
+                    <span class="project-stack-tag">Cloud Firestore</span>
+                    <span class="project-stack-tag">Firebase Auth</span>
+                  </div>
+                  <div class="project-card-footer">
+                    <div class="project-links">
+                      <a href="https://github.com/Vedd023/College-ERP" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        Repository <span aria-hidden="true">↗</span>
+                      </a>
+                      <a href="https://vedd023.github.io/College-ERP/" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        Live Demo <span aria-hidden="true">↗</span>
+                      </a>
+                      <button class="project-link" onclick="openProjectDetail('college-erp')">
+                        Case Study <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                    <div class="card-flip-badge">
+                      <span class="flip-hint-icon">↻</span> Hover card to view dashboard
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- BACK: Real Dashboard Screenshot -->
+              <div class="project-card-flip-back">
+                <div class="dashboard-preview-card">
+                  <img src="college_erp_dashboard.png" alt="EduNexus College ERP System Dashboard"
+                    class="dashboard-preview-img" loading="lazy">
+                  <div class="dashboard-preview-overlay">
+                    <div class="dash-overlay-badge">// Institutional Analytics Portal</div>
+                    <div class="dash-overlay-title">EduNexus ERP Dashboard</div>
+                    <p class="dash-overlay-desc">Multi-role attendance matrix, grading analytics, and institutional
+                      records deployed live.</p>
+                    <div class="dash-overlay-actions">
+                      <a href="https://github.com/Vedd023/College-ERP" target="_blank" rel="noopener noreferrer"
+                        class="dash-action-btn">Repository ↗</a>
+                      <a href="https://vedd023.github.io/College-ERP/" target="_blank" rel="noopener noreferrer"
+                        class="dash-action-btn">Live Demo ↗</a>
+                      <button class="dash-action-btn primary" onclick="openProjectDetail('college-erp')">Case Study
+                        →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill" style="width:60%"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ ABOUT ═══════ -->
+    <section class="about" id="about" aria-label="About me">
+      <div class="container">
+        <div class="separator reveal"></div>
+        <div style="padding-top: var(--space-2xl);">
+          <div class="reveal">
+            <div class="section-label">About</div>
+            <h2 class="section-heading">How I approach building</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-bio reveal">
+              <div class="about-portrait-card">
+                <div class="about-portrait-frame">
+                  <img src="profile.jpg" alt="Ved Dixit — AI &amp; Data Science Engineer" class="about-portrait-img">
+                  <div class="about-portrait-overlay">
+                    <span class="about-portrait-status">◉ ACTIVE BUILDER</span>
+                    <span class="about-portrait-id">VD // 2026</span>
+                  </div>
+                </div>
+                <div class="about-portrait-caption">
+                  <div class="about-portrait-name">Ved Dixit</div>
+                  <div class="about-portrait-role">B.E. AI &amp; Data Science · Terna Engineering College (GPA: 7.2)
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-text">
+                <p>
+                  I'm <strong>Ved Dixit</strong>, an Artificial Intelligence &amp; Data Science engineering student at
+                  Terna Engineering College, Nerul (GPA: 7.2), based in Navi Mumbai.
+                  I focus on building practical, user-focused software spanning web development, cloud technologies, and
+                  intelligent systems.
+                </p>
+                <p>
+                  My hands-on experience includes developing web platforms such as <strong>EduNexus ERP</strong> and
+                  <strong>LinkGrid</strong>, interning as a <strong>Web Operations Intern</strong> at Concept
+                  Simplified, and building AI monitoring platforms like <strong>Belt Guard AI</strong> and
+                  <strong>Polaris</strong>.
+                </p>
+                <p>
+                  Beyond software engineering, I have led social media strategy as <strong>Social Media Head</strong>
+                  for Avalon Terna Techfest 2026, actively volunteer with <strong>NSS</strong>, and participate in
+                  collaborative technical communities including Intellecta and Syntax Syndicate.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-approach reveal">
+              <div class="about-approach-item">
+                <h3>Understand the Problem</h3>
+                <p>Before writing code, I spend time understanding the domain, the user, and the constraints. Good
+                  software starts with the right questions.</p>
+              </div>
+              <div class="about-approach-item">
+                <h3>Experiment &amp; Iterate</h3>
+                <p>I prototype quickly, test ideas, and refine based on what works. Not every approach pans out, and
+                  that's how you learn.</p>
+              </div>
+              <div class="about-approach-item">
+                <h3>Design with Intent</h3>
+                <p>Whether it's a dashboard or an API, usability matters. I care about how things feel as much as how
+                  they function.</p>
+              </div>
+              <div class="about-approach-item">
+                <h3>Ship &amp; Document</h3>
+                <p>A project isn't done until it's deployed and documented. I write READMEs, maintain clean repos, and
+                  keep code accessible.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="cert-wall">
-        <div class="profile-id">// CERTIFICATIONS + TRACK RECORD</div>
-        <br>
-        <div class="cert-card">
-          <div class="cert-icon">◈</div>
-          <div style="flex:1;">
-            <div class="cert-name">Gen AI</div>
-            <div class="cert-issuer">GOOGLE</div>
-          </div>
-          <div class="status-badge badge-wip" style="align-self:center;">ONGOING</div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">◈</div>
-          <div style="flex:1;">
-            <div class="cert-name">GitHub Foundations</div>
-            <div class="cert-issuer">MICROSOFT</div>
-          </div>
-          <div class="status-badge badge-wip" style="align-self:center;">ONGOING</div>
+    <!-- ═══════ TOOLKIT ═══════ -->
+    <section class="toolkit" id="toolkit" aria-label="Technical toolkit">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Technical Toolkit</div>
+          <h2 class="section-heading">What I work with</h2>
         </div>
 
-        <div class="tape-divider" style="margin:1.5rem 0;"></div>
-
-        <div
-          style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--rust);letter-spacing:4px;margin-bottom:1rem;">
-          // RACE STATS</div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
-          <div style="background:var(--surface2);padding:1rem;text-align:center;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--amber);">01</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;">
-              Projects</div>
+        <div class="toolkit-grid">
+          <div class="toolkit-category reveal">
+            <div class="toolkit-category-title">Programming Languages</div>
+            <ul class="toolkit-list" role="list">
+              <li>Python</li>
+              <li>JavaScript</li>
+            </ul>
           </div>
-          <div style="background:var(--surface2);padding:1rem;text-align:center;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--amber);">1</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;">
-              Year exp</div>
+
+          <div class="toolkit-category reveal">
+            <div class="toolkit-category-title">Web Development</div>
+            <ul class="toolkit-list" role="list">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Vanilla JavaScript</li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- === CONTACT BAY === -->
-  <section id="contact">
-    <div class="section-header reveal">
-      <div class="section-label">CONTACT BAY</div>
-      <div class="section-line"></div>
-      <div class="section-code">BAY-03 / OPEN FOR WORK</div>
-    </div>
+          <div class="toolkit-category reveal">
+            <div class="toolkit-category-title">Database &amp; Cloud</div>
+            <ul class="toolkit-list" role="list">
+              <li>Cloud Firestore</li>
+              <li>Firebase</li>
+            </ul>
+          </div>
 
-    <div class="contact-bay">
-      <div class="bay-panel">
-        <div class="bay-title">FIND THE GARAGE</div>
-
-        <a href="https://github.com/Vedd023" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <span class="link-label">GitHub</span>
-          <span class="link-val">github.com/Vedd023</span>
-          <span class="link-arrow">→</span>
-        </a>
-        <a href="https://www.linkedin.com/in/ved-dixit-b279983a1" target="_blank" rel="noopener noreferrer"
-          class="contact-link">
-          <span class="link-label">LinkedIn</span>
-          <span class="link-val">linkedin.com/in/ved-dixit-b279983a1</span>
-          <span class="link-arrow">→</span>
-        </a>
-
-        <a href="Ved_Dixit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <span class="link-label">Resume</span>
-          <span class="link-val">View the Resume</span>
-          <span class="link-arrow">→</span>
-        </a>
-
-        <div style="margin-top:2rem;background:var(--surface2);padding:1rem;border-left:2px solid var(--amber);">
-          <div
-            style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--amber);letter-spacing:3px;margin-bottom:8px;">
-            // CURRENT STATUS</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.7;">
-            Open to <strong style="color:var(--cream);">internships</strong> and <strong
-              style="color:var(--cream);">full-time jobs</strong>. Especially interested in building websites and roles
-            related to <strong style="color:var(--cream);">data science</strong> and <strong
-              style="color:var(--cream);">data analytics</strong>.
-            Usually responds within 24 hours.
+          <div class="toolkit-category reveal">
+            <div class="toolkit-category-title">Editing &amp; Media</div>
+            <ul class="toolkit-list" role="list">
+              <li>DaVinci Resolve</li>
+              <li>CapCut</li>
+            </ul>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="bay-panel">
-        <div class="bay-title">DROP A MESSAGE</div>
-        <div class="message-form">
-          <div class="form-field">
-            <label class="form-label">Your name</label>
-            <input class="form-input" id="contactName" type="text" placeholder="FULL NAME">
+    <!-- ═══════ JOURNEY ═══════ -->
+    <section class="journey" id="journey" aria-label="Journey and experience">
+      <div class="container">
+        <div class="separator reveal"></div>
+        <div style="padding-top: var(--space-2xl);">
+          <div class="reveal">
+            <div class="section-label">Journey</div>
+            <h2 class="section-heading">Where I've been</h2>
           </div>
-          <div class="form-field">
-            <label class="form-label">Your email</label>
-            <input class="form-input" id="contactEmail" type="email" placeholder="EMAIL@DOMAIN.COM">
+
+          <div class="timeline">
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Oct 2026</div>
+              <div class="timeline-title">LINKGRID</div>
+              <div class="timeline-subtitle">Web Application</div>
+              <p class="timeline-desc">
+                Built a web-based utility to shorten long URLs and generate high-resolution QR codes completely in the
+                browser with offline capability.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Oct 2026</div>
+              <div class="timeline-title">POLARIS</div>
+              <div class="timeline-subtitle">Expedition Management Platform · SIH 2026</div>
+              <p class="timeline-desc">
+                Integrated polar expedition management platform built with Next.js 15, TypeScript, and Supabase for
+                logistics, risk monitoring, and AI decision-making.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Sep 2026</div>
+              <div class="timeline-title">Belt-Guard-AI</div>
+              <div class="timeline-subtitle">Industrial AI Monitoring Dashboard</div>
+              <p class="timeline-desc">
+                AI-powered industrial monitoring dashboard using simulated multi-sensor telemetry, sensor-fusion risk
+                scoring, and anomaly detection to monitor conveyor belt health.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">July 2026 – Sep 2026</div>
+              <div class="timeline-title">Web Operations Intern</div>
+              <div class="timeline-subtitle">Concept Simplified — Remote</div>
+              <p class="timeline-desc">
+                Managed web operations, digital workflows, and cloud-supported web solutions, ensuring reliable
+                performance and smooth user experiences.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Jan 2026 – Mar 2026</div>
+              <div class="timeline-title">Social Media Head</div>
+              <div class="timeline-subtitle">Avalon Terna Techfest 2026</div>
+              <p class="timeline-desc">
+                Led the official social media strategy and digital campaigns for Avalon Techfest 2026, driving event
+                engagement, content creation, and student outreach.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Sept 2025 – Present</div>
+              <div class="timeline-title">Volunteer</div>
+              <div class="timeline-subtitle">National Service Scheme (NSS)</div>
+              <p class="timeline-desc">
+                Active member participating in community outreach, public awareness drives, and social welfare programs
+                organised by the college NSS unit.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">2025 – Present</div>
+              <div class="timeline-title">Community Building</div>
+              <div class="timeline-subtitle">Intellecta · Syntax Syndicate</div>
+              <p class="timeline-desc">
+                Active in technical community activities, contributing to Intellecta and Syntax Syndicate for
+                collaborative learning and knowledge sharing.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Apr – May 2025</div>
+              <div class="timeline-title">College ERP — EduNexus</div>
+              <div class="timeline-subtitle">Full-Stack Web Platform · Firebase</div>
+              <p class="timeline-desc">
+                Built a college ERP system managing students, faculty, attendance, exams, grades, and fees with
+                role-based dashboards and Firebase Firestore.
+              </p>
+            </div>
+
+            <div class="timeline-item reveal">
+              <div class="timeline-date">Sept 2024 – Present</div>
+              <div class="timeline-title">B.E. in AI &amp; Data Science</div>
+              <div class="timeline-subtitle">Terna Engineering College, Nerul · GPA: 7.2</div>
+              <p class="timeline-desc">
+                Undergraduate studies in Artificial Intelligence &amp; Data Science. Hands-on focus in web development,
+                cloud technologies, machine learning, and practical software engineering.
+              </p>
+            </div>
+
           </div>
-          <div class="form-field">
-            <label class="form-label">Subject</label>
-            <input class="form-input" id="contactSubject" type="text" placeholder="WHAT'S THE JOB?">
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="separator reveal"></div>
+        <div style="padding-top: var(--space-2xl);">
+          <div class="reveal">
+            <div class="section-label">Contact</div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Message</label>
-            <textarea class="form-input" id="contactMessage" rows="5" placeholder="DESCRIBE THE BUILD..."></textarea>
+
+          <div class="contact-grid">
+            <div class="reveal">
+              <h2 class="contact-cta">
+                Let's build<br>something together.
+              </h2>
+              <p class="contact-text">
+                Open to internship opportunities, technical collaborations, and conversations about software, AI, and
+                creative digital work. I usually respond within 24 hours.
+              </p>
+
+              <div class="contact-links-list">
+                <a href="mailto:veddixit28@gmail.com" class="contact-link-item"
+                  aria-label="Send email to veddixit28@gmail.com">
+                  <div>
+                    <div class="contact-link-label">Email</div>
+                    <div class="contact-link-value">veddixit28@gmail.com</div>
+                  </div>
+                  <span class="contact-link-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <div class="contact-link-item" style="cursor: default;">
+                  <div>
+                    <div class="contact-link-label">Location</div>
+                    <div class="contact-link-value">Navi Mumbai, India</div>
+                  </div>
+                  <span class="contact-link-arrow" style="opacity: 0.4;" aria-hidden="true">◉</span>
+                </div>
+
+                <a href="https://github.com/Vedd023" target="_blank" rel="noopener noreferrer" class="contact-link-item"
+                  aria-label="Visit GitHub profile">
+                  <div>
+                    <div class="contact-link-label">GitHub</div>
+                    <div class="contact-link-value">github.com/Vedd023</div>
+                  </div>
+                  <span class="contact-link-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/ved-dixit-b279983a1" target="_blank" rel="noopener noreferrer"
+                  class="contact-link-item" aria-label="Visit LinkedIn profile">
+                  <div>
+                    <div class="contact-link-label">LinkedIn</div>
+                    <div class="contact-link-value">linkedin.com/in/ved-dixit</div>
+                  </div>
+                  <span class="contact-link-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="Ved_Dixit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link-item"
+                  aria-label="Download resume">
+                  <div>
+                    <div class="contact-link-label">Resume</div>
+                    <div class="contact-link-value">Download PDF</div>
+                  </div>
+                  <span class="contact-link-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Your Name</label>
+                  <input class="form-input" type="text" id="contact-name" name="name" placeholder="Full name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email</label>
+                  <input class="form-input" type="email" id="contact-email" name="email" placeholder="email@domain.com"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-subject">Subject</label>
+                  <input class="form-input" type="text" id="contact-subject" name="subject"
+                    placeholder="What's this about?">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-message">Message</label>
+                  <textarea class="form-input" id="contact-message" name="message" rows="5"
+                    placeholder="Tell me about your project or idea..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">
+                  Send Message <span aria-hidden="true">→</span>
+                </button>
+              </form>
+            </div>
           </div>
-          <button class="send-btn" onclick="sendEmail()">SEND TO GARAGE →</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          © 2026 Ved Dixit — Built in progress
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/Vedd023" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/ved-dixit-b279983a1" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:veddixit28@gmail.com">Email</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <div class="footer-mark">VED'S GARAGE · <span>UNIT 07</span> · ALL BUILDS HAND-CRAFTED</div>
-    <div class="footer-social-row">
-      <a href="https://github.com/Vedd023" target="_blank" rel="noopener noreferrer" class="footer-social-link"
-        aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z" />
-        </svg>
-        GITHUB
-      </a>
-      <a href="https://www.linkedin.com/in/ved-dixit-b279983a1" target="_blank" rel="noopener noreferrer"
-        class="footer-social-link" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-        </svg>
-        LINKEDIN
-      </a>
-    </div>
-    <div class="footer-mark"><span>◉</span> OPEN FOR WORK — 2026</div>
   </footer>
 
-  <div class="footer-tape"></div>
-
-  <!-- Media Modal -->
-  <div class="media-modal" id="mediaModal">
-    <div class="media-modal-content">
-      <div class="media-modal-header">
-        <div class="media-modal-title" id="mediaModalTitle">// PROJECT MEDIA BAY</div>
-        <button class="media-modal-close" onclick="closeMediaModal()">×</button>
-      </div>
-      <div class="media-modal-body" id="mediaModalBody">
-        <!-- Populated dynamically from images.json -->
-      </div>
+  <!-- ═══════ PROJECT DETAIL OVERLAY ═══════ -->
+  <div class="project-detail-overlay" id="project-detail-overlay" role="dialog" aria-modal="true"
+    aria-label="Project details">
+    <div class="project-detail" id="project-detail-content">
+      <!-- Populated dynamically -->
     </div>
   </div>
 
-  <!-- Lightbox Modal -->
-  <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
-    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightboxImg" onclick="event.stopPropagation()">
-    <div id="lightboxCaption" class="lightbox-caption"></div>
-  </div>
-
+  <!-- ═══════ SCRIPTS ═══════ -->
   <script>
-    /* === Images data (mirrored from images.json for file:// fallback) === */
-    var PORTFOLIO_IMAGES = {
-      projects: [
-        {
-          id: 'college-erp',
-          name: 'COLLEGE ERP — EduNexus',
-          screenshots: [
-            {
-              url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/screenshot.png',
-              alt: 'Login Screen',
-              caption: '// SECURE PORTAL LOGIN',
-              description: 'Role-based authentication interface for Students, Faculty, and Admins.'
-            },
-            {
-              url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/dashboard.png',
-              alt: 'Dashboard',
-              caption: '// SYSTEM DASHBOARD',
-              description: 'High-level analytics, attendance tracking, and institutional data overview.'
-            },
-            {
-              url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/menu.png',
-              alt: 'Navigation Menu',
-              caption: '// NAVIGATION MODULE',
-              description: 'Quick access sidebar for system routing, grading metrics, and profile management.'
-            }
-          ]
-        }
-      ]
+    /* ── Project Data ── */
+    const PROJECT_KEYS = ['belt-guard', 'linkgrid', 'polaris', 'college-erp'];
+
+    const PROJECTS = {
+      'belt-guard': {
+        title: 'Belt-Guard-AI',
+        category: 'Industrial AI / Monitoring',
+        summary: 'An AI-powered industrial monitoring dashboard that uses simulated multi-sensor telemetry, sensor-fusion risk scoring, and anomaly detection to monitor conveyor belt health, identify potential faults, and support predictive maintenance.',
+        problem: 'Industrial conveyor belt failures cause costly downtime, dangerous mechanical failures, and unmonitored hazards. Traditional maintenance relies on manual periodic inspections, which are inconsistent and usually detect damage after failure has begun.',
+        motivation: 'I wanted to apply machine learning to physical industrial infrastructure — investigating how real-time sensor streams and computer vision can predict equipment failures before catastrophic stoppage.',
+        solution: 'Belt-Guard-AI integrates multi-sensor telemetry (rotational RPM, temperature probes, dynamic load cells, and lateral alignment detectors) combined with simulated computer vision inspection. It streams real-time telemetry into a lightweight React dashboard for predictive health scoring and alert routing.',
+        architecture: `
+┌──────────────────┐     ┌───────────────┐     ┌──────────────────┐
+│  IoT Telemetry   │────▶│  Data Ingest  │────▶│  ML Pipeline     │
+│  RPM · Temp      │     │  Validation   │     │  Anomaly Scoring │
+│  Load · Drift    │     │  & Normalizer │     │  & Alert Engine  │
+└──────────────────┘     └───────────────┘     └────────┬─────────┘
+                                                        │
+                                                        ▼
+                                               ┌──────────────────┐
+                                               │  React Dashboard │
+                                               │  Real-time HUD   │
+                                               │  Visual Alarms   │
+                                               └──────────────────┘`,
+        stack: ['React 19', 'TypeScript 6', 'Vite 8', 'Tailwind CSS 4', 'Recharts', 'React Router DOM', 'Lucide React', 'date-fns'],
+        stackRationale: 'TypeScript with React/Vite was selected for high-frequency dashboard re-rendering and strict type safety across sensor packet schemas. Vite enables rapid iteration with zero build latency.',
+        contribution: 'Architected system flow, implemented sensor simulation and telemetry normalization pipelines, built the responsive operator dashboard in React, and authored documentation.',
+        challenges: [
+          'Synchronizing asynchronous data streams across 4 independent telemetry channels',
+          'Minimizing dashboard re-renders during high-frequency data ingestion',
+          'Balancing anomaly thresholds to minimize false positive stoppage alerts'
+        ],
+        status: 'Prototype complete with simulated telemetry stream and operator HUD. Hardware sensor bench testing is planned next.',
+        limitations: 'Currently operates with high-fidelity simulated telemetry. Hardware deployment will require MCU firmware (ESP32/STM32) and industrial field calibration.',
+        learned: 'Industrial telemetry patterns, high-frequency state management in React, and the critical role of fault tolerance in sensor networks.',
+        future: ['Physical ESP32 edge microcontroller integration', 'Edge-quantized anomaly models for zero-cloud latency', 'Historical predictive maintenance scheduling calendar'],
+        repoUrl: 'https://github.com/Vedd023/Belt-Guard-AI',
+        liveUrl: null,
+        screenshots: []
+      },
+      'linkgrid': {
+        title: 'LINKGRID',
+        category: 'Web Application',
+        summary: 'A web-based tool that shortens long URLs and converts links into QR codes. It makes links easier to share and access while providing a simple and user-friendly interface.',
+        problem: 'Most existing QR utilities require server uploads, track analytics, embed aggressive advertisements, or gate vector export formats behind paywalls.',
+        motivation: 'I wanted to build a practical everyday utility that demonstrates the strength of zero-framework vanilla web technologies — no build tools, no servers, zero tracking.',
+        solution: 'LINKGRID transforms URLs, Wi-Fi credentials, vCard contact files, and arbitrary plain text into customizable, high-resolution QR codes directly in the browser canvas. It operates completely offline and allows immediate PNG export.',
+        architecture: `
+┌────────────────────────────────────────────────────────┐
+│                    Client Browser                      │
+│  ┌──────────────┐    ┌──────────────┐    ┌───────────┐ │
+│  │ Input Parser │───▶│  QR Engine   │───▶│ Canvas    │ │
+│  │ URL/Wi-Fi/TXT│    │  Reed-Solomon│    │ Renderer  │ │
+│  └──────────────┘    └──────────────┘    └─────┬─────┘ │
+│                                                │       │
+│                                                ▼       │
+│                                          ┌───────────┐ │
+│                                          │ PNG / SVG │ │
+│                                          │ Download  │ │
+│                                          └───────────┘ │
+└────────────────────────────────────────────────────────┘`,
+        stack: ['HTML', 'CSS', 'JavaScript', 'Canvas API', 'QR Encoding Engine'],
+        stackRationale: 'Zero-build architecture chosen by design. Runs instantly in any modern browser by double-clicking index.html. Lightweight dark terminal aesthetic ensures quick scan contrast.',
+        contribution: 'Sole designer and developer. Conceived, implemented, styled, and deployed the entire application.',
+        challenges: [
+          'Ensuring generated QR codes meet strict ISO/IEC 18004 scanning standards across varied contrast palettes',
+          'Formatting specialized Wi-Fi and vCard payload strings correctly for iOS and Android scanners',
+          'Handling canvas DPI scaling on high-density Retina screens'
+        ],
+        status: 'Shipped and functional.',
+        limitations: 'Client-side only; does not maintain an account database or cloud shortlink redirection.',
+        learned: 'Mastery of the Canvas API, error-correction Reed-Solomon mathematics, and the elegance of dependency-free web development.',
+        future: ['Progressive Web App (PWA) offline installation', 'Batch CSV-to-QR generation', 'Embedded SVG logo overlay support'],
+        repoUrl: 'https://github.com/Vedd023/LINKGRID',
+        liveUrl: null,
+        screenshots: []
+      },
+      'polaris': {
+        title: 'POLARIS',
+        category: 'Expedition Management / IoT',
+        summary: 'An integrated polar expedition management platform that streamlines expedition planning, asset and inventory management, logistics, risk monitoring, and AI-assisted operational decision-making.',
+        problem: 'Polar and Southern Ocean research requires durable, autonomous sensing platforms that can operate in sub-zero seawater conditions for months at a time. Existing oceanographic drifters are prohibitively expensive.',
+        motivation: 'Smart India Hackathon 2026 Problem Statement PS 26065 challenged teams to engineer an ultra-low-cost autonomous ocean sensing buoy. Built with Team Innovexa.',
+        solution: 'POLARIS is designed as an autonomous oceanic sensing platform integrating water temperature, salinity, wave frequency, and current sensors with satellite data transmission and intelligent power management.',
+        architecture: `
+┌──────────────────┐     ┌───────────────┐     ┌──────────────────┐
+│  Marine Sensors  │────▶│  Onboard MCU  │────▶│  Satellite Link  │
+│  Temp · Salinity │     │  Aggregation  │     │  Iridium / LoRa  │
+│  Wave Spectrum   │     │  Power Logic  │     │  Periodic Burst  │
+└──────────────────┘     └───────────────┘     └────────┬─────────┘
+                                                        │
+                                                        ▼
+                                               ┌──────────────────┐
+                                               │  Ground Station  │
+                                               │  Telemetry Map   │
+                                               │  Ocean Analysis  │
+                                               └──────────────────┘`,
+        stack: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Supabase Auth', 'PostgreSQL RLS'],
+        stackRationale: 'Next.js 15 and Supabase power the modern expedition management platform with row-level security and high performance telemetry visualization.',
+        contribution: 'Contributing to system architecture, sensor fusion telemetry normalization, and the ground-station visualization dashboard as part of Team Innovexa.',
+        challenges: [
+          'Designing for extreme thermal fluctuations, biofouling, and corrosive seawater',
+          'Strict energy harvesting budgets for multi-month solar/battery autonomy',
+          'Optimizing satellite data payload sizes to minimize transmission costs'
+        ],
+        status: 'In active development — Smart India Hackathon 2026 internal stage.',
+        limitations: 'Currently at prototype design and laboratory testing stage prior to open-water deployment.',
+        learned: 'Sensor fusion principles, low-bandwidth communication constraints, and collaborative hardware-software engineering under hackathon constraints.',
+        future: ['Full physical sea-trial deployment', 'Edge ML wave spectrum anomaly detection', 'Solar energy optimization algorithm'],
+        repoUrl: 'https://github.com/Vedd023/Polaris',
+        liveUrl: null,
+        screenshots: []
+      },
+      'college-erp': {
+        title: 'College ERP — EduNexus',
+        category: 'Web Platform',
+        summary: 'College ERP is a web-based college management system that helps manage students, faculty, attendance, exams, grades, timetable, assignments, and fees with separate dashboards for Admin, Faculty, and Students using HTML, CSS, JavaScript, and Firebase.',
+        problem: 'Colleges often rely on scattered, archaic systems for attendance, grading, and syllabus tracking, resulting in fragmented communication and high administrative friction.',
+        motivation: 'I wanted to build a cohesive, accessible institutional portal that delivers intuitive role-based experiences for students, professors, and administrators without expensive third-party software licensing.',
+        solution: 'Created EduNexus with tailored role-based authentication and modular views: Student portal (attendance %, GPA calculation, timetable), Faculty portal (marking attendance, class syllabus updates), and Admin portal (institutional analytics and account management).',
+        architecture: `
+┌────────────────────────────────────────────────────────┐
+│              EduNexus Platform Architecture            │
+│  ┌──────────────────┐  ┌───────────────┐  ┌──────────┐ │
+│  │ Student Module   │  │ Faculty View  │  │ Admin UI │ │
+│  │ Attendance & GPA │  │ Grading & Log │  │ Analytics│ │
+│  └────────┬─────────┘  └───────┬───────┘  └─────┬────┘ │
+│           │                    │                │      │
+│           ▼                    ▼                ▼      │
+│  ┌───────────────────────────────────────────────────┐ │
+│  │          Role-Based Auth & Session Store          │ │
+│  └───────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────┘`,
+        stack: ['HTML', 'CSS', 'Vanilla JavaScript', 'Cloud Firestore', 'Firebase Authentication', 'GitHub Pages'],
+        stackRationale: 'Built with clean semantic HTML, custom CSS, and modular vanilla JavaScript to ensure zero runtime bloat, rapid page loads, and seamless static hosting on GitHub Pages.',
+        contribution: 'Sole architect and developer. Designed UI, implemented role-based routing, attendance calculation logic, responsive layout, and deployed live.',
+        challenges: [
+          'Enforcing role-based UI permissions and state isolation cleanly in client-side JavaScript',
+          'Designing an accessible, high-density dashboard suitable for both mobile students and desktop administrators',
+          'Architecting modular CSS without relying on heavy external framework libraries'
+        ],
+        status: 'Shipped and deployed live on GitHub Pages. Earned 6 GitHub stars from the open-source community.',
+        limitations: 'Demonstration deployment operates on client-side session store. Production deployment would integrate a persistent PostgreSQL database.',
+        learned: 'Component-driven vanilla JavaScript architecture, complex dashboard layout ergonomics, and GitHub Pages CI/CD deployment.',
+        future: ['Node.js backend with PostgreSQL database', 'Biometric attendance sync integration', 'Automated semester report card PDF generator'],
+        repoUrl: 'https://github.com/Vedd023/College-ERP',
+        liveUrl: 'https://vedd023.github.io/College-ERP/',
+        screenshots: [
+          {
+            url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/screenshot.png',
+            alt: 'EduNexus Login Screen',
+            caption: '// SECURE PORTAL LOGIN',
+            description: 'Role-based authentication interface for Students, Faculty, and Admins.'
+          },
+          {
+            url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/dashboard.png',
+            alt: 'EduNexus System Dashboard',
+            caption: '// SYSTEM DASHBOARD',
+            description: 'High-level analytics, attendance tracking, and institutional data overview.'
+          },
+          {
+            url: 'https://raw.githubusercontent.com/Vedd023/College-ERP/main/assets/img/menu.png',
+            alt: 'EduNexus Navigation Menu',
+            caption: '// NAVIGATION MODULE',
+            description: 'Quick access sidebar for system routing, grading metrics, and profile management.'
+          }
+        ]
+      }
     };
 
-    /* Try to load images.json (works on HTTP/GitHub Pages) */
-    fetch('./images.json')
-      .then(function (r) { return r.json(); })
-      .then(function (data) { PORTFOLIO_IMAGES = data; })
-      .catch(function () { /* file:// fallback — uses inline data above */ });
+    /* ── Navigation ── */
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
 
-    /* === Modal === */
-    function openMediaModal(projectId) {
-      var project = PORTFOLIO_IMAGES.projects.find(function (p) { return p.id === projectId; });
-      if (!project) return;
-
-      /* Set title */
-      document.getElementById('mediaModalTitle').textContent = '// PROJECT MEDIA BAY — ' + project.name;
-
-      /* Build screenshot grid */
-      var body = document.getElementById('mediaModalBody');
-      body.innerHTML = project.screenshots.map(function (s) {
-        var escCaption = (s.caption + ' — ' + s.description).replace(/'/g, "\\'").replace(/"/g, "&quot;");
-        var escUrl = s.url.replace(/'/g, "\\'");
-        return [
-          '<div class="media-item">',
-          '  <div onclick="openLightbox(\'' + escUrl + '\', \'' + escCaption + '\')" style="cursor: pointer;">',
-          '    <img src="' + s.url + '" alt="' + s.alt + '" class="media-modal-img">',
-          '  </div>',
-          '  <div class="media-caption">' + s.caption + '<br>' + s.description + '</div>',
-          '</div>'
-        ].join('');
-      }).join('');
-
-      document.getElementById('mediaModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMediaModal() {
-      document.getElementById('mediaModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('mediaModal').addEventListener('click', function (e) {
-      if (e.target === this) closeMediaModal();
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    /* === Lightbox === */
-    function openLightbox(url, caption) {
-      var modal = document.getElementById('lightboxModal');
-      var img = document.getElementById('lightboxImg');
-      var cap = document.getElementById('lightboxCaption');
-      modal.classList.add('active');
-      img.src = url;
-      cap.innerHTML = caption;
-    }
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
 
-    function closeLightbox() {
-      var modal = document.getElementById('lightboxModal');
-      modal.classList.remove('active');
-    }
-
-    /* === Nav === */
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      event.target.classList.add('active');
-      // Re-trigger reveal for new section
-      triggerReveal();
-    }
-
-    /* === Theme === */
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-      const icon = document.getElementById('theme-icon');
-      if (document.body.classList.contains('light-mode')) {
-        icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
-      } else {
-        icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
-    }
+    });
 
-    /* === Email === */
-    function sendEmail() {
-      const name = document.getElementById('contactName').value.trim();
-      const email = document.getElementById('contactEmail').value.trim();
-      const subject = document.getElementById('contactSubject').value.trim();
-      const message = document.getElementById('contactMessage').value.trim();
+    /* ── Scroll Reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Contact Form ── */
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
       if (!name || !email || !message) {
         alert('Please fill in Name, Email and Message.');
         return;
       }
+
       const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=veddixit28@gmail.com&su=${encodeURIComponent(subject || 'Message from Portfolio')}&body=${encodeURIComponent(bodyText)}`;
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=veddixit28@gmail.com&su=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(bodyText)}`;
       window.open(gmailUrl, '_blank');
     }
 
-    /* === Live Clock === */
-    function updateClock() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      const el = document.getElementById('live-clock');
-      if (el) el.innerHTML = `${h}<span class="clock-colon">:</span>${m}<span class="clock-colon">:</span>${s}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+    /* ── Project Detail Modal ── */
+    function openProjectDetail(projectId) {
+      const project = PROJECTS[projectId];
+      if (!project) return;
 
-    /* === Scroll Reveal === */
-    function triggerReveal() {
-      const reveals = document.querySelectorAll('.reveal');
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      reveals.forEach(el => {
-        // reset then observe
-        if (!el.classList.contains('visible')) obs.observe(el);
-        else { el.classList.remove('visible'); setTimeout(() => obs.observe(el), 10); }
-      });
-    }
-    // Initial trigger after short delay
-    setTimeout(triggerReveal, 100);
+      const currentIndex = PROJECT_KEYS.indexOf(projectId);
+      const prevKey = currentIndex > 0 ? PROJECT_KEYS[currentIndex - 1] : null;
+      const nextKey = currentIndex < PROJECT_KEYS.length - 1 ? PROJECT_KEYS[currentIndex + 1] : null;
 
-    /* === Keyboard: Esc closes modal === */
+      const overlay = document.getElementById('project-detail-overlay');
+      const content = document.getElementById('project-detail-content');
+
+      const screenshotsHtml = (project.screenshots && project.screenshots.length > 0) ? `
+        <div class="detail-section">
+          <div class="detail-section-title">Verified Visuals &amp; Screenshots</div>
+          <div class="detail-screenshots">
+            ${project.screenshots.map(s => `
+              <div class="detail-screenshot-card">
+                <img src="${s.url}" alt="${s.alt}" loading="lazy">
+                <div class="detail-screenshot-caption">
+                  <div class="detail-screenshot-tag">${s.caption}</div>
+                  <div class="detail-screenshot-desc">${s.description}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      content.innerHTML = `
+        <button class="project-detail-close" onclick="closeProjectDetail()" aria-label="Close project details">
+          ✕ Close
+        </button>
+
+        <div class="project-number" style="margin-bottom: var(--space-xs);">${project.category}</div>
+        <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; margin-bottom: var(--space-md);">${project.title}</h2>
+        <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: var(--space-lg);">${project.summary}</p>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Problem</div>
+          <p>${project.problem}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Why This Problem</div>
+          <p>${project.motivation}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Solution</div>
+          <p>${project.solution}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Architecture</div>
+          <div class="arch-diagram">${project.architecture}</div>
+        </div>
+
+        ${screenshotsHtml}
+
+        <div class="detail-section">
+          <div class="detail-section-title">Technology Stack</div>
+          <div class="project-stack" style="margin-bottom: var(--space-sm);">
+            ${project.stack.map(t => `<span class="project-stack-tag">${t}</span>`).join('')}
+          </div>
+          <p>${project.stackRationale}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">My Contribution</div>
+          <p>${project.contribution}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Technical Challenges</div>
+          <ul>
+            ${project.challenges.map(c => `<li>${c}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Status &amp; Limitations</div>
+          <p><strong style="color: var(--text);">Status:</strong> ${project.status}</p>
+          <p style="margin-top: 8px;"><strong style="color: var(--text);">Limitations:</strong> ${project.limitations}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">What I Learned</div>
+          <p>${project.learned}</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-title">Future Improvements</div>
+          <ul>
+            ${project.future.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--border); flex-wrap: wrap;">
+          <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            View Repository ↗
+          </a>
+          ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary">Live Demo ↗</a>` : ''}
+        </div>
+
+        <div class="detail-nav">
+          ${prevKey ? `
+            <button class="detail-nav-btn" onclick="openProjectDetail('${prevKey}')">
+              ← Previous: ${PROJECTS[prevKey].title}
+            </button>
+          ` : `<span></span>`}
+          ${nextKey ? `
+            <button class="detail-nav-btn" onclick="openProjectDetail('${nextKey}')">
+              Next: ${PROJECTS[nextKey].title} →
+            </button>
+          ` : `<span></span>`}
+        </div>
+      `;
+
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      content.querySelector('.project-detail-close').focus();
+    }
+
+    function closeProjectDetail() {
+      const overlay = document.getElementById('project-detail-overlay');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on overlay click
+    document.getElementById('project-detail-overlay').addEventListener('click', function (e) {
+      if (e.target === this) closeProjectDetail();
+    });
+
+    // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
-        closeMediaModal();
-        closeLightbox();
+        closeProjectDetail();
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
       }
     });
-  </script>
 
-  <!-- Three.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    /* ── Smooth nav background on scroll ── */
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(16, 16, 16, 0.95)';
+      } else {
+        nav.style.background = 'rgba(16, 16, 16, 0.85)';
+      }
+    }, { passive: true });
 
-  <script>
-    (function () {
-      var container = document.getElementById('car3d-container');
-      if (!container || typeof THREE === 'undefined') return;
-      var W = container.clientWidth || 420, H = 260;
-      var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x060505);
-      scene.fog = new THREE.FogExp2(0x060505, 0.018);
-      var camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
-      camera.position.set(0, 2.4, 9.0);
-      camera.lookAt(0, 0.35, 0);
-      var renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-      renderer.setSize(W, H);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.3;
-      renderer.physicallyCorrectLights = true;
-      renderer.domElement.style.display = 'block';
-      container.appendChild(renderer.domElement);
-      var key = new THREE.DirectionalLight(0xfff4e0, 4.0);
-      key.position.set(7, 12, 6); key.castShadow = true;
-      key.shadow.mapSize.set(2048, 2048);
-      key.shadow.camera.left = -8; key.shadow.camera.right = 8;
-      key.shadow.camera.top = 7; key.shadow.camera.bottom = -5;
-      key.shadow.camera.far = 30; key.shadow.bias = -0.0005;
-      scene.add(key);
-      var fill = new THREE.DirectionalLight(0x6090c0, 1.4); fill.position.set(-8, 4, 3); scene.add(fill);
-      var rim = new THREE.DirectionalLight(0xff7733, 1.8); rim.position.set(0, 5, -10); scene.add(rim);
-      var top = new THREE.DirectionalLight(0xd0e0ff, 1.0); top.position.set(0, 15, 0); scene.add(top);
-      scene.add(new THREE.HemisphereLight(0x303545, 0x1a1008, 1.5));
-      var floorMat = new THREE.MeshStandardMaterial({ color: 0x090808, roughness: 0.12, metalness: 0.85 });
-      var floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(22, 22), floorMat);
-      floorMesh.rotation.x = -Math.PI / 2; floorMesh.position.y = -0.47; floorMesh.receiveShadow = true;
-      scene.add(floorMesh);
-      var grid = new THREE.GridHelper(14, 22, 0x282018, 0x181008); grid.position.y = -0.462; scene.add(grid);
-      function pbr(col, met, rou, ex) { return Object.assign(new THREE.MeshStandardMaterial({ color: col, metalness: met, roughness: rou }), ex || {}); }
-      var mPaint = pbr(0x7a0e0e, 0.90, 0.12), mPaintDk = pbr(0x4a0808, 0.85, 0.18), mPaintAc = pbr(0x1e1e1e, 0.88, 0.16);
-      var mGlass = pbr(0x1a2840, 0.08, 0.04, { transparent: true, opacity: 0.72 });
-      var mChrome = pbr(0xd8d8d8, 1.00, 0.03), mGun = pbr(0x252525, 0.85, 0.14);
-      var mTire = pbr(0x0e0e0e, 0.00, 0.96), mRim = pbr(0xb0b4bc, 0.95, 0.06), mRimHi = pbr(0xd8dce4, 1.00, 0.03);
-      var mUnderbody = pbr(0x151210, 0.10, 0.92), mBrake = pbr(0xcc1a00, 0.30, 0.55), mDisc = pbr(0x606060, 0.45, 0.65);
-      var mHL = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffee88, emissiveIntensity: 3.5, roughness: 0.0, metalness: 0.1 });
-      var mDRL = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 5.0, roughness: 0.0 });
-      var mTail = new THREE.MeshStandardMaterial({ color: 0xff1100, emissive: 0xff1100, emissiveIntensity: 2.8, roughness: 0.08, metalness: 0.2 });
-      var mTailAmber = new THREE.MeshStandardMaterial({ color: 0xff8800, emissive: 0xff6600, emissiveIntensity: 1.5, roughness: 0.1 });
-      function bx(mat, w, h, d, x, y, z, rx, ry, rz) {
-        var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
-        m.position.set(x, y, z); if (rx) m.rotation.x = rx; if (ry) m.rotation.y = ry; if (rz) m.rotation.z = rz;
-        m.castShadow = true; m.receiveShadow = true; return m;
-      }
-      function cy(mat, rt, rb, h, seg, x, y, z, rx) {
-        var m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat);
-        m.position.set(x, y, z); if (rx) m.rotation.x = rx; m.castShadow = true; return m;
-      }
-      var car = new THREE.Group();
-      car.add(bx(mUnderbody, 4.70, 0.11, 1.88, 0, -0.20, 0));
-      car.add(bx(mPaintDk, 3.80, 0.13, 0.15, 0.08, 0.00, 0.975));
-      car.add(bx(mPaintDk, 3.80, 0.13, 0.15, 0.08, 0.00, -0.975));
-      car.add(bx(mPaint, 3.60, 0.50, 1.78, 0.00, 0.25, 0));
-      car.add(bx(mPaint, 1.10, 0.50, 1.78, 1.68, 0.25, 0));
-      car.add(bx(mPaint, 1.00, 0.50, 1.78, -1.62, 0.25, 0));
-      car.add(bx(mPaint, 1.30, 0.09, 1.76, 1.50, 0.51, 0));
-      car.add(bx(mPaint, 0.70, 0.26, 1.76, 2.12, 0.37, 0, 0, 0, -0.32));
-      car.add(bx(mPaintDk, 0.28, 0.08, 1.76, 1.12, 0.51, 0));
-      car.add(bx(mPaint, 0.90, 0.09, 1.76, -1.52, 0.51, 0));
-      car.add(bx(mPaint, 0.70, 0.26, 1.76, -2.10, 0.40, 0, 0, 0, 0.30));
-      car.add(bx(mPaintDk, 0.20, 0.06, 1.76, -1.08, 0.51, 0));
-      car.add(bx(mPaint, 2.10, 0.52, 1.78, -0.08, 0.78, 0));
-      car.add(bx(mPaint, 1.74, 0.09, 1.73, -0.10, 1.05, 0));
-      car.add(bx(mPaintDk, 0.07, 0.66, 1.70, 0.98, 0.80, 0, 0, 0, -0.56));
-      car.add(bx(mPaintDk, 0.06, 0.52, 0.055, -0.08, 0.80, 0.89));
-      car.add(bx(mPaintDk, 0.06, 0.52, 0.055, -0.08, 0.80, -0.89));
-      car.add(bx(mPaintDk, 0.07, 0.60, 1.70, -1.08, 0.79, 0, 0, 0, 0.50));
-      car.add(bx(mGlass, 0.055, 0.64, 1.60, 0.98, 0.80, 0, 0, 0, -0.56));
-      car.add(bx(mGlass, 0.055, 0.56, 1.60, -1.08, 0.79, 0, 0, 0, 0.50));
-      car.add(bx(mGlass, 0.84, 0.42, 0.038, 0.42, 0.82, 0.90));
-      car.add(bx(mGlass, 0.84, 0.42, 0.038, 0.42, 0.82, -0.90));
-      car.add(bx(mGlass, 0.70, 0.38, 0.038, -0.62, 0.81, 0.90));
-      car.add(bx(mGlass, 0.70, 0.38, 0.038, -0.62, 0.81, -0.90));
-      car.add(bx(mGlass, 0.28, 0.30, 0.038, -1.10, 0.80, 0.90));
-      car.add(bx(mGlass, 0.28, 0.30, 0.038, -1.10, 0.80, -0.90));
-      car.add(bx(mPaintDk, 0.15, 0.33, 1.82, 2.37, 0.15, 0));
-      car.add(bx(mGun, 0.13, 0.10, 1.76, 2.37, -0.03, 0));
-      car.add(bx(mGun, 0.26, 0.06, 1.68, 2.42, -0.08, 0));
-      car.add(bx(mGun, 0.12, 0.22, 0.90, 2.37, 0.27, 0));
-      for (var g = 0; g < 6; g++) car.add(bx(mChrome, 0.10, 0.022, 0.88, 2.37, 0.17 + g * 0.048, 0));
-      for (var gv = 0; gv < 3; gv++) car.add(bx(mChrome, 0.10, 0.20, 0.022, 2.37, 0.27, -0.22 + gv * 0.22));
-      car.add(bx(mPaintDk, 0.11, 0.20, 0.52, 2.37, 0.41, 0.67));
-      car.add(bx(mPaintDk, 0.11, 0.20, 0.52, 2.37, 0.41, -0.67));
-      car.add(bx(mHL, 0.09, 0.11, 0.38, 2.38, 0.41, 0.68));
-      car.add(bx(mHL, 0.09, 0.11, 0.38, 2.38, 0.41, -0.68));
-      car.add(bx(mDRL, 0.09, 0.032, 0.54, 2.38, 0.53, 0.67));
-      car.add(bx(mDRL, 0.09, 0.032, 0.54, 2.38, 0.53, -0.67));
-      car.add(bx(mDRL, 0.09, 0.022, 0.46, 2.38, 0.47, 0.68));
-      car.add(bx(mDRL, 0.09, 0.022, 0.46, 2.38, 0.47, -0.68));
-      var hl1 = new THREE.PointLight(0xfff5cc, 1.4, 9); hl1.position.set(3.2, 0.42, 0.67); car.add(hl1);
-      var hl2 = new THREE.PointLight(0xfff5cc, 1.4, 9); hl2.position.set(3.2, 0.42, -0.67); car.add(hl2);
-      car.add(bx(mPaintDk, 0.15, 0.28, 1.82, -2.38, 0.15, 0));
-      car.add(bx(mGun, 0.18, 0.16, 1.64, -2.40, -0.05, 0));
-      for (var d = 0; d < 6; d++) car.add(bx(mGun, 0.16, 0.13, 0.022, -2.40, -0.04, -0.60 + d * 0.24));
-      car.add(bx(mPaintDk, 0.10, 0.07, 1.86, -1.96, 0.56, 0));
-      car.add(bx(mGun, 0.055, 0.13, 1.78, -2.08, 0.60, 0));
-      car.add(bx(mTail, 0.09, 0.24, 0.60, -2.38, 0.40, 0.68));
-      car.add(bx(mTail, 0.09, 0.24, 0.60, -2.38, 0.40, -0.68));
-      car.add(bx(mTail, 0.09, 0.038, 1.82, -2.38, 0.52, 0));
-      car.add(bx(mTailAmber, 0.09, 0.09, 0.22, -2.38, 0.30, 0.80));
-      car.add(bx(mTailAmber, 0.09, 0.09, 0.22, -2.38, 0.30, -0.80));
-      var tl1 = new THREE.PointLight(0xff2200, 0.7, 6); tl1.position.set(-3.1, 0.40, 0.68); car.add(tl1);
-      var tl2 = new THREE.PointLight(0xff2200, 0.7, 6); tl2.position.set(-3.1, 0.40, -0.68); car.add(tl2);
-      car.add(bx(mPaint, 0.24, 0.10, 0.28, 0.98, 0.76, 1.02));
-      car.add(bx(mPaint, 0.24, 0.10, 0.28, 0.98, 0.76, -1.02));
-      car.add(bx(mGun, 0.04, 0.08, 0.24, 0.98, 0.76, 1.04));
-      car.add(bx(mGun, 0.04, 0.08, 0.24, 0.98, 0.76, -1.04));
-      car.add(bx(mChrome, 0.26, 0.055, 0.038, 0.30, 0.60, 0.955));
-      car.add(bx(mChrome, 0.26, 0.055, 0.038, 0.30, 0.60, -0.955));
-      car.add(bx(mChrome, 0.20, 0.055, 0.038, -0.62, 0.60, 0.955));
-      car.add(bx(mChrome, 0.20, 0.055, 0.038, -0.62, 0.60, -0.955));
-      var ex1 = cy(mChrome, 0.050, 0.050, 0.09, 14, -2.42, -0.12, 0.46, Math.PI / 2);
-      var ex2 = cy(mChrome, 0.050, 0.050, 0.09, 14, -2.42, -0.12, -0.46, Math.PI / 2);
-      car.add(ex1); car.add(ex2);
-      [[1.55, 0.04, 0.93], [1.55, 0.04, -0.93], [-1.52, 0.04, 0.93], [-1.52, 0.04, -0.93]].forEach(function (p) {
-        var arch = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.025, 10, 28, Math.PI), mPaintDk);
-        arch.position.set(p[0], p[1], p[2]); arch.rotation.z = Math.PI;
-        arch.rotation.y = p[2] > 0 ? 0 : Math.PI; arch.castShadow = true; car.add(arch);
+    /* ── 3D Flip Card Hover & Touch Interactions ── */
+    const flipCards = document.querySelectorAll('.flip-card, .project-card-flip-wrapper');
+    flipCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('is-flipped');
       });
-      function canvasTex(fn, tw, th) {
-        var c = document.createElement('canvas'); c.width = tw; c.height = th; fn(c.getContext('2d'));
-        return new THREE.CanvasTexture(c);
-      }
-      var plateTex = canvasTex(function (ctx) {
-        ctx.fillStyle = '#f2f0e8'; ctx.fillRect(0, 0, 512, 160);
-        ctx.fillStyle = '#003399'; ctx.fillRect(4, 4, 504, 46);
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText('IND', 256, 27);
-        ctx.fillStyle = '#111'; ctx.font = 'bold 80px monospace'; ctx.fillText('EDUNEXUS', 256, 112);
-        ctx.strokeStyle = '#999'; ctx.lineWidth = 4; ctx.strokeRect(4, 4, 504, 152);
-      }, 512, 160);
-      var pMat = new THREE.MeshStandardMaterial({ map: plateTex, roughness: 0.4, metalness: 0.05 });
-      car.add(bx(pMat, 0.055, 0.26, 0.82, 2.43, 0.20, 0));
-      car.add(bx(pMat, 0.055, 0.26, 0.82, -2.43, 0.20, 0));
-      var decalTex = canvasTex(function (ctx) {
-        ctx.clearRect(0, 0, 512, 80);
-        ctx.fillStyle = 'rgba(255,215,0,0.92)'; ctx.font = 'bold 56px sans-serif';
-        ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('COLLEGE ERP', 256, 40);
-      }, 512, 80);
-      var dMat = new THREE.MeshStandardMaterial({ map: decalTex, transparent: true, roughness: 0.3, depthWrite: false });
-      var dL = new THREE.Mesh(new THREE.PlaneGeometry(1.55, 0.24), dMat); dL.position.set(-0.10, 0.36, 0.92); car.add(dL);
-      var dR = new THREE.Mesh(new THREE.PlaneGeometry(1.55, 0.24), dMat); dR.position.set(-0.10, 0.36, -0.92); dR.rotation.y = Math.PI; car.add(dR);
-      var wheelGroups = [];
-      function makeWheel(xPos, zPos) {
-        var wg = new THREE.Group(); wg.position.set(xPos, 0, zPos);
-        var tire = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.44, 0.24, 40), mTire);
-        tire.rotation.x = Math.PI / 2; tire.castShadow = true; wg.add(tire);
-        [-0.12, 0.12].forEach(function (dz) {
-          var sw = new THREE.Mesh(new THREE.TorusGeometry(0.38, 0.042, 10, 36), mTire);
-          sw.rotation.x = Math.PI / 2; sw.position.z = dz; wg.add(sw);
-        });
-        var rim2 = new THREE.Mesh(new THREE.CylinderGeometry(0.345, 0.345, 0.25, 32), mRim);
-        rim2.rotation.x = Math.PI / 2; wg.add(rim2);
-        for (var s = 0; s < 5; s++) {
-          var ang = (s / 5) * Math.PI * 2;
-          var spk = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.52, 0.065), mRimHi); spk.rotation.z = ang; wg.add(spk);
-          var gap = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.44, 0.07), mGun); gap.rotation.z = ang + Math.PI / 5; wg.add(gap);
-        }
-        var cap = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.28, 18), mChrome); cap.rotation.x = Math.PI / 2; wg.add(cap);
-        for (var n = 0; n < 5; n++) {
-          var na = (n / 5) * Math.PI * 2;
-          var lug = new THREE.Mesh(new THREE.CylinderGeometry(0.020, 0.020, 0.28, 8), mChrome);
-          lug.rotation.x = Math.PI / 2; lug.position.set(Math.cos(na) * 0.19, Math.sin(na) * 0.19, 0); wg.add(lug);
-        }
-        var disc = new THREE.Mesh(new THREE.CylinderGeometry(0.30, 0.30, 0.044, 24), mDisc); disc.rotation.x = Math.PI / 2; disc.position.z = -0.07; wg.add(disc);
-        for (var v = 0; v < 8; v++) {
-          var va = (v / 8) * Math.PI * 2;
-          var vent = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.14, 0.05), pbr(0x404040, 0.3, 0.7));
-          vent.rotation.z = va; vent.position.z = -0.07; wg.add(vent);
-        }
-        var cal = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.22, 0.10), mBrake); cal.position.set(0, 0.29, -0.07); wg.add(cal);
-        wheelGroups.push(wg); return wg;
-      }
-      car.add(makeWheel(1.55, 0.96));
-      car.add(makeWheel(1.55, -0.96));
-      car.add(makeWheel(-1.52, 0.96));
-      car.add(makeWheel(-1.52, -0.96));
-      car.position.y = -0.02;
-      scene.add(car);
-      var angle = 0, t = 0;
-      function animate() {
-        requestAnimationFrame(animate);
-        t += 0.016; angle += 0.006; car.rotation.y = angle;
-        wheelGroups.forEach(function (wg) { wg.rotation.z -= 0.038; });
-        hl1.intensity = 1.3 + Math.sin(t * 12) * 0.12;
-        hl2.intensity = 1.3 + Math.sin(t * 12 + 0.6) * 0.12;
-        renderer.render(scene, camera);
-      }
-      animate();
-      window.addEventListener('resize', function () {
-        var nW = container.clientWidth;
-        camera.aspect = nW / H; camera.updateProjectionMatrix(); renderer.setSize(nW, H);
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('is-flipped');
       });
-    })();
+      // Touch support
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        card.classList.toggle('is-flipped');
+      });
+    });
+
+    // Also flip featured visual when hovering over featured project container
+    const featuredCard = document.getElementById('project-belt-guard');
+    const featuredVisual = document.querySelector('.project-featured-visual.flip-card');
+    if (featuredCard && featuredVisual) {
+      featuredCard.addEventListener('mouseenter', () => {
+        featuredVisual.classList.add('is-flipped');
+      });
+      featuredCard.addEventListener('mouseleave', () => {
+        featuredVisual.classList.remove('is-flipped');
+      });
+    }
   </script>
 
 </body>

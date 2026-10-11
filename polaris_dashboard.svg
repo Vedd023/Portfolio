@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="pol-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1017"/>
+      <stop offset="100%" stop-color="#05080c"/>
+    </linearGradient>
+    <linearGradient id="pol-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e1722"/>
+      <stop offset="100%" stop-color="#090e15"/>
+    </linearGradient>
+    <linearGradient id="pol-blue-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00a8ff"/>
+      <stop offset="100%" stop-color="#00e5ff"/>
+    </linearGradient>
+    <linearGradient id="pol-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E65335"/>
+      <stop offset="100%" stop-color="#ff795a"/>
+    </linearGradient>
+    <filter id="p-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#pol-bg)"/>
+  <rect x="0" y="0" width="960" height="540" fill="none" stroke="#162230" stroke-width="2"/>
+
+  <!-- Top Navigation Header -->
+  <rect x="0" y="0" width="960" height="48" fill="#0d1520" stroke="#192738" stroke-width="1"/>
+  <circle cx="28" cy="24" r="5" fill="#00e5ff" filter="url(#p-glow)"/>
+  <text x="44" y="28" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#EDEDED" letter-spacing="1.5">POLARIS</text>
+  <text x="125" y="28" font-family="'JetBrains Mono', monospace" font-size="11" fill="#5a7894">// OCEAN RESEARCH TELEMETRY</text>
+
+  <rect x="360" y="14" width="220" height="22" rx="3" fill="#131e2c" stroke="#1e3046"/>
+  <text x="470" y="29" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00e5ff" text-anchor="middle">SOUTHERN OCEAN SECTOR 07</text>
+
+  <rect x="790" y="14" width="145" height="22" rx="11" fill="#0b241e" stroke="#174f3f"/>
+  <circle cx="804" cy="25" r="4" fill="#00ff9d" filter="url(#p-glow)"/>
+  <text x="816" y="29" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00ff9d" font-weight="600">IRIDIUM BURST: ACTIVE</text>
+
+  <!-- Left Column: Polar Radar & Map -->
+  <rect x="24" y="68" width="460" height="448" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  
+  <text x="44" y="96" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#6d8ba6" letter-spacing="1">POLAR DRIFT VECTOR // ANTARCTIC CONVERGENCE</text>
+  <text x="44" y="114" font-family="'JetBrains Mono', monospace" font-size="10" fill="#466078">LAT 64°18'24"S · LON 58°42'10"W · DEPTH 4,200m</text>
+
+  <!-- Radar circle visualization -->
+  <g transform="translate(254, 260)">
+    <!-- Radar rings -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#142333" stroke-width="1"/>
+    <circle cx="0" cy="0" r="105" fill="none" stroke="#192d42" stroke-width="1"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#223a54" stroke-width="1"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#2a4768" stroke-width="1"/>
+    
+    <!-- Radar crosshairs -->
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="#192d42" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="0" y1="-150" x2="0" y2="150" stroke="#192d42" stroke-width="1" stroke-dasharray="4,4"/>
+    
+    <!-- Sweep cone -->
+    <path d="M0,0 L120,-80 A140,140 0 0,0 40,-135 Z" fill="#00e5ff" opacity="0.12"/>
+    
+    <!-- Buoy Markers -->
+    <!-- Primary Buoy 04 -->
+    <circle cx="28" cy="-42" r="6" fill="#E65335" filter="url(#p-glow)"/>
+    <circle cx="28" cy="-42" r="14" fill="none" stroke="#E65335" stroke-width="1.5" opacity="0.6"/>
+    <text x="42" y="-38" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#fff">BUOY-04 [ACTIVE]</text>
+    <polyline points="28,-42 6,-20 -15,10 -30,45" fill="none" stroke="#E65335" stroke-width="1.5" stroke-dasharray="2,2"/>
+    
+    <!-- Secondary Buoy 02 -->
+    <circle cx="-75" cy="55" r="4" fill="#00e5ff"/>
+    <text x="-135" y="60" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00e5ff">BUOY-02 (24km)</text>
+
+    <!-- Beacon 01 -->
+    <circle cx="95" cy="70" r="3" fill="#5a7894"/>
+    <text x="105" y="74" font-family="'JetBrains Mono', monospace" font-size="9" fill="#5a7894">RELAY-01</text>
+  </g>
+
+  <!-- Left Footer Data -->
+  <rect x="44" y="440" width="420" height="56" rx="3" fill="#0b131d" stroke="#162332"/>
+  <text x="56" y="460" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6d8ba6">DRIFT SPEED: <tspan fill="#EDEDED" font-weight="600">1.24 knots</tspan> · HEADING: <tspan fill="#EDEDED" font-weight="600">142° SE</tspan></text>
+  <text x="56" y="482" font-family="'JetBrains Mono', monospace" font-size="9" fill="#466078">BUILT FOR SMART INDIA HACKATHON 2026 // HARDWARE COST &lt; $300</text>
+
+  <!-- Right Column: Sensor Metrics & Spectral Waveforms -->
+  <!-- Top 4 sensor metric cards -->
+  <rect x="504" y="68" width="206" height="88" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="520" y="92" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6d8ba6">SURFACE WATER TEMP</text>
+  <text x="520" y="124" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#00e5ff">-1.84 <tspan font-size="13" fill="#6d8ba6">°C</tspan></text>
+  <text x="520" y="142" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00ff9d">STABLE · SUB-FREEZING</text>
+
+  <rect x="726" y="68" width="210" height="88" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="742" y="92" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6d8ba6">OCEAN SALINITY</text>
+  <text x="742" y="124" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#EDEDED">34.72 <tspan font-size="13" fill="#6d8ba6">PSU</tspan></text>
+  <text x="742" y="142" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6d8ba6">CONDUCTIVITY NOMINAL</text>
+
+  <rect x="504" y="172" width="206" height="88" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="520" y="196" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6d8ba6">SIGNIFICANT WAVE HEIGHT</text>
+  <text x="520" y="228" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#E65335">3.42 <tspan font-size="13" fill="#6d8ba6">m</tspan></text>
+  <text x="520" y="246" font-family="'JetBrains Mono', monospace" font-size="9" fill="#E65335">ROUGH SEA (BEAUFORT 5)</text>
+
+  <rect x="726" y="172" width="210" height="88" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="742" y="196" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6d8ba6">POWER BUS &amp; HARVESTING</text>
+  <text x="742" y="228" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#00ff9d">88.4 <tspan font-size="13" fill="#6d8ba6">%</tspan></text>
+  <text x="742" y="246" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00ff9d">SOLAR + WAVE HARVEST +4.2W</text>
+
+  <!-- Wave Spectral Analysis Panel -->
+  <rect x="504" y="276" width="432" height="152" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="520" y="300" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#6d8ba6">WAVE SPECTRAL DENSITY // FFT ACCELEROMETER</text>
+  <text x="860" y="300" font-family="'JetBrains Mono', monospace" font-size="9" fill="#E65335">0.082 Hz PEAK</text>
+
+  <!-- Waveform graph -->
+  <rect x="520" y="312" width="400" height="80" rx="3" fill="#091017" stroke="#162332"/>
+  <path d="M520,352 Q540,320 560,352 T600,352 T640,318 T680,380 T720,352 T760,332 T800,368 T840,352 T880,330 T920,352" fill="none" stroke="#00e5ff" stroke-width="2" filter="url(#p-glow)"/>
+  <path d="M520,352 Q540,340 560,352 T600,352 T640,338 T680,362 T720,352 T760,344 T800,358 T840,352 T880,345 T920,352" fill="none" stroke="#E65335" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <text x="530" y="405" font-family="'JetBrains Mono', monospace" font-size="8" fill="#466078">0.01 Hz</text>
+  <text x="710" y="405" font-family="'JetBrains Mono', monospace" font-size="8" fill="#466078">DOMINANT FREQ: 12.2s PERIOD</text>
+  <text x="880" y="405" font-family="'JetBrains Mono', monospace" font-size="8" fill="#466078">0.50 Hz</text>
+
+  <text x="520" y="420" font-family="'JetBrains Mono', monospace" font-size="9" fill="#5a7894">Sensor: MPU6050 6-DOF IMU + Kalman Filtering on ESP32</text>
+
+  <!-- Satellite Uplink Status Bar -->
+  <rect x="504" y="440" width="432" height="76" rx="4" fill="url(#pol-card)" stroke="#1a2736"/>
+  <text x="520" y="462" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#6d8ba6">COMMUNICATION BACKBONE</text>
+  <text x="520" y="482" font-family="'JetBrains Mono', monospace" font-size="10" fill="#EDEDED">Iridium 9603 SBD Transceiver · Payload: 340 bytes binary struct</text>
+  <text x="520" y="500" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00ff9d">Next satellite pass: in 14m 20s · Queue: 0 pending · Packet Loss: 0.0%</text>
+</svg>
